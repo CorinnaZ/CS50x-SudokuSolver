@@ -45,7 +45,6 @@ namespace SudokuSolver
         /// </summary>
         /// <param name="idx">Index of the column to return (0...8)</param>
         /// <returns>The requested column as an int array</returns>
-        /// <exception cref="NotImplementedException"></exception>
         public int[] GetColumn(int idx)
         {
             int[] column = new int[9];
@@ -60,12 +59,27 @@ namespace SudokuSolver
         /// <summary>
         /// Returns specific 3x3 square
         /// </summary>
-        /// <param name="idx">Index of the square to return (0, 1, 2; 3, 4, 5; 6, 7, 8)</param>
-        /// <returns>The requested square as a 2D int array</returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public int[,] Get3x3(int idx)
+        /// <param name="idx">Index of the square to return
+        /// 0 1 2
+        /// 3 4 5
+        /// 6 7 8
+        /// </param>
+        /// <returns>The requested square as an int array</returns>
+        public int[] GetSquare(int idx)
         {
-            throw new NotImplementedException();
+            int[] square = new int[9];
+            int startI = (idx % 3) * 3;
+            double fraction = idx / 3;
+            int startJ = Convert.ToInt32(Math.Floor(fraction)) * 3;
+            for(int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < 3; j++)
+                {
+                    square[j * 3 + i] = _sudoku[startJ + j, startI + i];
+                }
+            }
+
+            return square;
         }
 
         /// <summary>

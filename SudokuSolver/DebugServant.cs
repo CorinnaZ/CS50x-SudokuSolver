@@ -75,7 +75,7 @@ namespace SudokuSolver
 
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
@@ -98,7 +98,8 @@ namespace SudokuSolver
                     sw.WriteLine(dateTime + "Sudoku: ");
                     for (int i = 0; i < 9; i++)
                     {
-                        sw.WriteLine("[{0}]", string.Join(", ", sudoku.GetRow(i)));
+                        PrintSudokuLine(sw, sudoku, i);
+                        //sw.WriteLine("[{0}]", string.Join(", ", sudoku.GetRow(i)));
                     }
                 }
 
@@ -109,6 +110,25 @@ namespace SudokuSolver
                 return false;
             }
         }
+
+        /// <summary>
+        /// Writes a single sudoku line to the StreamWriter (with formatting)
+        /// </summary>
+        /// <param name="sw">StreamWriter to write to</param>
+        /// <param name="sudoku">Sudoku to print</param>
+        /// <param name="i">Index of the row which should be printed</param>
+        private void PrintSudokuLine(StreamWriter sw, Sudoku sudoku, int i)
+        {
+            int[] row = sudoku.GetRow(i);
+            string write = String.Format("{0} {1} {2} | {3} {4} {5} | {6} {7} {8}\n", row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8]);
+            sw.Write(write);
+            if (i == 2 || i == 5)
+            {
+                sw.WriteLine("---------------------");
+            }
+
+        }
+
 
         #endregion
 
