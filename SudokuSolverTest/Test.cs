@@ -1,5 +1,7 @@
-﻿using SudokuSolver;
-using System;
+﻿using System;
+using Servants;
+using SudokuDefinition;
+using BruteForceSolverDefinition;
 
 namespace SudokuSolverTest
 {
@@ -22,13 +24,14 @@ namespace SudokuSolverTest
             dbgServant.PrintMessage("TEST");
             dbgServant.PrintSudoku(easySudoku);
 
-            Solver solver = new Solver();
+            //Solver solver = new Solver(); // this is now an abstract class
             // Sudoku result = solver.SolveSudoku(easySudoku);
             //int[] square = easySudoku.GetSquare(1);
+            BruteForceSolver solver = new BruteForceSolver(test);
+            int res = solver.GetSquareIndex(8, 5);
+            //bool res = solver.CheckSudoku(easySudoku);
 
-            bool res = solver.CheckSudoku(easySudoku);
-
-            dbgServant.PrintMessage("Sudoku check resulted in: " + res);
+            //dbgServant.PrintMessage("Sudoku check resulted in: " + res);
 
             Console.WriteLine("Test finished.");
         }
