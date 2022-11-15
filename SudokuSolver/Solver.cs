@@ -11,7 +11,7 @@ namespace SudokuSolver
     public abstract class Solver
     {
         // class variables
-        Sudoku _sudoku;
+        public Sudoku _sudoku;
         static string _logpath = "";
         public DebugServant _logServant;
 
@@ -39,8 +39,8 @@ namespace SudokuSolver
         /// Zero in a sudoku stands for an empty cell
         /// </summary>
         /// <param name="sudoku">An incompletely filled sudoku</param>
-        /// <returns>A solved sudoku</returns>
-        public abstract Sudoku SolveSudoku(Sudoku sudoku);
+        /// <returns>True if solved, false otherwise</returns>
+        public abstract bool SolveSudoku(Sudoku sudoku);
         //{
         //    throw new NotImplementedException();
 
