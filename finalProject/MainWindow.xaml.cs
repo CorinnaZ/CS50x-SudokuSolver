@@ -23,6 +23,7 @@ namespace finalProject
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new SudokuWrapper();
         }
     }
 }

@@ -39,6 +39,8 @@ namespace SudokuSolverTest
             dbgServant.PrintMessage("Finished sudoku: ");
             dbgServant.PrintSudoku(solver._sudoku);
 
+            // https://stackoverflow.com/questions/67941969/draw-samurai-sudoku-grid-on-wpf/67943072#67943072
+
             //dbgServant.PrintMessage("Sudoku check resulted in: " + res);
 
             Console.WriteLine("Test finished.");
