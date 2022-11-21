@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using SudokuDefinition;
+using BruteForceSolverDefinition;
+using System.IO;
+using Servants;
 
 namespace finalProject
 {
@@ -16,6 +19,8 @@ namespace finalProject
         // internal variables
         public event PropertyChangedEventHandler? PropertyChanged;
         private readonly int[,] _mappedSudoku;
+        private string _logpath = "";
+        private string _savepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CS50xLogSettings.set");
         public RelayCommand LoadExampleSudokuCommand { get; set; }
         public RelayCommand SolveBruteForceCommand { get; set; }
 
@@ -23,6 +28,11 @@ namespace finalProject
         {
             get { return _mappedSudoku[i, j]; }
             set { SetValue(ref _mappedSudoku[i, j], value); OnPropertyChanged(); }
+        }
+        public string Logpath
+        {
+            get { return _logpath; }
+            set { _logpath = value; OnPropertyChanged(); SaveLogpath(); }
         }
 
         private void SetValue(ref int v, int value)
@@ -42,19 +52,23 @@ namespace finalProject
         {
             _mappedSudoku = new int[9, 9];
 
+            // load former logpath
+            LoadLogpath();
+
             LoadExampleSudokuCommand = new RelayCommand(o => LoadExampleSudoku());
             SolveBruteForceCommand = new RelayCommand(o => SolveBruteForce());
-            //int[,] easyTest2 = new int[,] {  { 0, 2, 7, 0, 0, 0, 9, 1, 3 }, { 9, 0, 0, 3, 4, 0, 6, 0, 7 }, { 0, 0, 0, 0, 0, 0, 0, 0, 4 },
-            //                                 { 0, 3, 2, 0, 8, 0, 4, 0, 0 }, { 5, 0, 8, 7, 3, 4, 0, 0, 0 }, { 7, 0, 4, 2, 0, 0, 5, 0, 8 },
-            //                                 { 0, 0, 1, 9, 2, 6, 3, 4, 0 }, { 2, 5, 0, 0, 0, 0, 0, 9, 0 }, { 0, 0, 9, 0, 5, 1, 0, 2, 0 }};
-            //Sudoku test = new Sudoku(easyTest2);
-            //SudokuToArray(test);
 
         }
 
+
+
+        #region Utility Functions
+
         private void SolveBruteForce()
         {
-            throw new NotImplementedException();
+            BruteForceSolver solver = new BruteForceSolver(Logpath);
+            solver.SolveSudoku(new Sudoku(_mappedSudoku));
+            SudokuToArray(solver._sudoku);
         }
 
         private void LoadExampleSudoku()
@@ -65,10 +79,6 @@ namespace finalProject
             Sudoku test = new Sudoku(easyTest2);
             SudokuToArray(test);
         }
-
-
-
-        #region Utility Functions
 
         public void SudokuToArray(Sudoku sudoku)
         {
@@ -95,6 +105,30 @@ namespace finalProject
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        private void LoadLogpath()
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(_savepath))
+                {
+                    Logpath = sr.ReadLine();
+                }
+            }
+            catch { }
+            
+        }
+
+        private void SaveLogpath()
+        {
+            
+            // save in appdata
+            using (StreamWriter sw = new StreamWriter(_savepath, false))
+            {
+                sw.WriteLine(Logpath);
+            }
+        }
+
         #endregion
 
     }

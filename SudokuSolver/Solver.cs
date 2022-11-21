@@ -18,11 +18,13 @@ namespace SudokuSolver
         // constructors
         public Solver()
         {
+            _logServant = new DebugServant(_logpath);
         }
 
         public Solver(Sudoku sudoku)
         {
             _sudoku = sudoku;
+            _logServant = new DebugServant(_logpath);
         }
 
         public Solver(Sudoku sudoku, string logpath)
@@ -30,6 +32,11 @@ namespace SudokuSolver
             _sudoku = sudoku;
             _logpath = logpath;
             _logServant = new DebugServant(_logpath);
+        }
+
+        public Solver(string logpath)
+        {
+            _logServant= new DebugServant(_logpath);
         }
 
         #region Utility Functions

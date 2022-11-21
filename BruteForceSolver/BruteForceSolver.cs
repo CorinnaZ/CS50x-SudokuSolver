@@ -27,6 +27,11 @@ namespace BruteForceSolverDefinition
 
         }
 
+        public BruteForceSolver(string logpath) : base(logpath)
+        {
+
+        }
+
         #region Utility Functions
 
         /// <summary>

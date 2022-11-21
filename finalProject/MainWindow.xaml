@@ -16,13 +16,15 @@
         <!-- Control Part -->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
-            <Button Content="Load example sudoku"  Command="{Binding LoadExampleSudokuCommand}" Grid.Row="0"/>
-            <Button Content="Solve sudoku (Brute force)"  Command="{Binding SolveBruteForceCommand}" Grid.Row="1"/>
+            <TextBox Grid.Row="0" Text="{Binding Logpath}"/>
+            <Button Content="Load example sudoku"  Command="{Binding LoadExampleSudokuCommand}" Grid.Row="1"/>
+            <Button Content="Solve sudoku (Brute force)"  Command="{Binding SolveBruteForceCommand}" Grid.Row="2"/>
         </Grid>
     </Grid>
 </Window>
