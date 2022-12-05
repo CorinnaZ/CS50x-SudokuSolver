@@ -48,61 +48,6 @@ namespace SudokuSolver
         /// <param name="sudoku">An incompletely filled sudoku</param>
         /// <returns>True if solved, false otherwise</returns>
         public abstract bool SolveSudoku(Sudoku sudoku);
-        //{
-        //    throw new NotImplementedException();
-
-        //    bool finished = CheckSudoku(sudoku);
-
-        //    bool[] rows = new bool[9];
-        //    bool[] cols = new bool[9];
-        //    bool[] squares = new bool[9];
-
-        //    int[] row = new int[9];
-        //    int[] col = new int[9];
-        //    int[] square = new int[9];
-
-        //    // [0,1,2]
-        //    // 0: row/col/square
-        //    // 1: 0...9 in row/col/square
-
-
-        //    while (finished == false)
-        //    {
-                
-        //        // to keep track of rows/columns/squares already used
-        //        for(int i = 0; i < 9; i++)
-        //        {
-        //            rows[i] = false;
-        //            cols[i] = false;
-        //            squares[i] = false;
-        //        }
-
-        //        // get easiest row/column/square and solve
-        //        //while (rows.Contains(false))
-        //        //{
-        //        //    row = GetEasiestRow(sudoku);
-
-        //        //}
-                 
-
-
-
-        //        // when through all and nothing changed in last iteration: different technique.
-
-        //        // First: search for easiest start. 
-        //        // easiest start is the one with most filled 
-
-        //        // second: find out which values are missing
-
-        //        // for each free field: test if the missing values would fit
-
-
-
-
-        //        finished = CheckSudoku(sudoku);
-        //    }
-
-        //}
 
         /// <summary>
         /// Check if sudoku is finished

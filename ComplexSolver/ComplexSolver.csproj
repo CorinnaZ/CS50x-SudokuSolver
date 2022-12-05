@@ -4,4 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Servants\Servants.csproj" />
+    <ProjectReference Include="..\SudokuSolver\SudokuSolver.csproj" />
+    <ProjectReference Include="..\Sudoku\Sudoku.csproj" />
+  </ItemGroup>
+
 </Project>

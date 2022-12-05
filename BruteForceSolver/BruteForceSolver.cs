@@ -9,8 +9,7 @@ namespace BruteForceSolverDefinition
     public class BruteForceSolver : Solver
     {
 
-        // class variables
-
+        #region constructors
         // constructors
         public BruteForceSolver() : base()
         {
@@ -31,6 +30,7 @@ namespace BruteForceSolverDefinition
         {
 
         }
+        #endregion
 
         #region Utility Functions
 
@@ -145,6 +145,12 @@ namespace BruteForceSolverDefinition
             return true;
         }
 
+        /// <summary>
+        /// Returns the index of the square that the entry described by indices i and j belongs to
+        /// </summary>
+        /// <param name="i">row of the entry</param>
+        /// <param name="j">column of the entry</param>
+        /// <returns>The index of the square</returns>
         public int GetSquareIndex(int i, int j)
         {
             double frac1 = i / 3;
