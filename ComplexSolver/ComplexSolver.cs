@@ -2,7 +2,7 @@
 using SudokuSolver;
 using System;
 
-namespace ComplexSolver
+namespace ComplexSolverDefinition
 {
     public class ComplexSolver : Solver
     {
@@ -40,30 +40,36 @@ namespace ComplexSolver
         public override bool SolveSudoku(Sudoku sudoku)
         {
             // Technique
+            // first search for single entries - maybe the sudoku is really really easy and solved by this alone :D
+            SearchAndFillAllSingleEntries(sudoku);
 
             // while not solved
             while (CheckSudoku(sudoku))
             {
-                // func1: SearchAndFillAllSingleEntries
-                // do until no single entries
-                // search for column, row or square with single empty entry
-                // fill
-                SearchAndFillAllSingleEntries(sudoku);
+                // no more single empty cells
+                
+                // build 3D matrix structure of all possible values for each cell
+                // isValid helps here.
+                // reduce: delete all numbers that are not valid in matrix
+                // single entry in matrix? Then fill!
 
-                // here: no single empty cells
+                // not? Try brute force.
+
+                SearchAndFillAllSingleEntries(sudoku);
             }
 
+            SearchAndFillAllSingleEntries(sudoku);
+            _sudoku = sudoku;
 
-
-
-            throw new NotImplementedException();
+            return true;
         }
 
+        /// <summary>
+        /// Search through all rows, columns and squares and fill all cells where only one number is missing
+        /// </summary>
+        /// <param name="sudoku">The sudoku to solve</param>
         private void SearchAndFillAllSingleEntries(Sudoku sudoku)
         {
-            // search through all rows, columns and squares
-            // if only one cell with 0: fill with corresponding number and call function again
-            // if no single emtpy element found: return sudoku
             bool foundOne = false;
 
             for (int i = 0; i < 9; i++)
@@ -78,11 +84,45 @@ namespace ComplexSolver
             }
             if (foundOne) SearchAndFillAllSingleEntries(sudoku);
             // Is this an infinity loop?
+            // No. If foundOne is false, it will get out.
         }
 
+        /// <summary>
+        /// Searches for single empty cell in specific square
+        /// </summary>
+        /// <param name="sudoku">The sudoku to solve</param>
+        /// <param name="idx">Index of the square to search </param>
+        /// <returns>True if single cell found and filled, false otherwise</returns>
         private bool SearchAndFillInSquare(Sudoku sudoku, int idx)
         {
-            throw new NotImplementedException();
+            int[] square = sudoku.GetSquare(idx);
+            int counter = 0;
+            int position = 0;
+            for (int i = 0; i < square.Length; i++)
+            {
+                // empty cell
+                if (square[i] == 0)
+                {
+                    counter++;
+                    position = i;
+                }
+            }
+            // found exactly one empty cell
+            if (counter == 1)
+            {
+                // cycle through each possible number
+                for (int i = 1; i < 10; i++)
+                {
+                    // number is not in column
+                    // https://www.tutorialkart.com/c-sharp-tutorial/c-sharp-check-if-array-contains-specific-element/
+                    if (!Array.Exists<int>(square, element => element == i))
+                    {
+                        sudoku.SetElement(position, position, i);
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -111,7 +151,7 @@ namespace ComplexSolver
                 // cycle through each possible number
                 for (int i = 1; i < 10; i++)
                 {
-                    // number is not in row
+                    // number is not in column
                     // https://www.tutorialkart.com/c-sharp-tutorial/c-sharp-check-if-array-contains-specific-element/
                     if (!Array.Exists<int>(col, element => element == i))
                     {

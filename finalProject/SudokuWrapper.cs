@@ -10,6 +10,7 @@ using SudokuDefinition;
 using BruteForceSolverDefinition;
 using System.IO;
 using Servants;
+using ComplexSolverDefinition;
 
 namespace finalProject
 {
@@ -23,6 +24,7 @@ namespace finalProject
         private string _savepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CS50xLogSettings.set");
         public RelayCommand LoadExampleSudokuCommand { get; set; }
         public RelayCommand SolveBruteForceCommand { get; set; }
+        public RelayCommand SolveComplexCommand { get; set; }
 
         public int this[int i, int j]
         {
@@ -57,6 +59,7 @@ namespace finalProject
 
             LoadExampleSudokuCommand = new RelayCommand(o => LoadExampleSudoku());
             SolveBruteForceCommand = new RelayCommand(o => SolveBruteForce());
+            SolveComplexCommand = new RelayCommand(o => SolveComplex());
 
         }
 
@@ -67,6 +70,13 @@ namespace finalProject
         private void SolveBruteForce()
         {
             BruteForceSolver solver = new BruteForceSolver(Logpath);
+            solver.SolveSudoku(new Sudoku(_mappedSudoku));
+            SudokuToArray(solver._sudoku);
+        }
+
+        private void SolveComplex()
+        {
+            ComplexSolver solver = new ComplexSolver(Logpath);
             solver.SolveSudoku(new Sudoku(_mappedSudoku));
             SudokuToArray(solver._sudoku);
         }

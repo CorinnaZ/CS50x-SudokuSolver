@@ -2,6 +2,7 @@
 using Servants;
 using SudokuDefinition;
 using BruteForceSolverDefinition;
+using ComplexSolverDefinition;
 
 namespace SudokuSolverTest
 {
@@ -20,8 +21,11 @@ namespace SudokuSolverTest
             int[,] easyTest2 = new int[,] {  { 0, 2, 7, 0, 0, 0, 9, 1, 3 }, { 9, 0, 0, 3, 4, 0, 6, 0, 7 }, { 0, 0, 0, 0, 0, 0, 0, 0, 4 },
                                              { 0, 3, 2, 0, 8, 0, 4, 0, 0 }, { 5, 0, 8, 7, 3, 4, 0, 0, 0 }, { 7, 0, 4, 2, 0, 0, 5, 0, 8 },
                                              { 0, 0, 1, 9, 2, 6, 3, 4, 0 }, { 2, 5, 0, 0, 0, 0, 0, 9, 0 }, { 0, 0, 9, 0, 5, 1, 0, 2, 0 }};
+            int[,] easyTest3 = new int[,] {  { 4, 2, 7, 5, 6, 0, 9, 1, 3 }, { 9, 0, 0, 3, 4, 0, 6, 0, 7 }, { 0, 0, 0, 0, 0, 0, 0, 0, 4 },
+                                             { 0, 3, 2, 0, 8, 0, 4, 0, 0 }, { 5, 0, 8, 7, 3, 4, 0, 0, 0 }, { 7, 0, 4, 2, 0, 0, 5, 0, 8 },
+                                             { 0, 0, 1, 9, 2, 6, 3, 4, 0 }, { 2, 5, 0, 0, 0, 0, 0, 9, 0 }, { 0, 0, 9, 0, 5, 1, 0, 2, 0 }};
             Sudoku test = new Sudoku(sudoku);
-            Sudoku easySudoku = new Sudoku(easyTest2);
+            Sudoku easySudoku = new Sudoku(easyTest3);
 
             DebugServant dbgServant = new DebugServant("D:\\Entwicklung\\CS50x\\finalProject\\DebugLog.log");
             dbgServant.PrintMessage("Original sudoku: ");
@@ -30,8 +34,8 @@ namespace SudokuSolverTest
             //Solver solver = new Solver(); // this is now an abstract class
             // Sudoku result = solver.SolveSudoku(easySudoku);
             //int[] square = easySudoku.GetSquare(1);
-            BruteForceSolver solver = new BruteForceSolver(test, "D:\\Entwicklung\\CS50x\\finalProject\\DebugLogSudoku.log");
-            int res = solver.GetSquareIndex(8, 5);
+            //BruteForceSolver solver = new BruteForceSolver(test, "D:\\Entwicklung\\CS50x\\finalProject\\DebugLogSudoku.log");
+            ComplexSolver solver = new ComplexSolver(test, "D:\\Entwicklung\\CS50x\\finalProject\\DebugLogSudoku.log");
             //bool res = solver.CheckSudoku(easySudoku);
 
             bool solved = solver.SolveSudoku(easySudoku);

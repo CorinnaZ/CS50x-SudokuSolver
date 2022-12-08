@@ -124,6 +124,108 @@ namespace SudokuSolver
             return true;
         }
 
+        /// <summary>
+        /// Checks if number would be a valid entry in the current space
+        /// </summary>
+        /// <param name="sudoku">The sudoku to solve</param>
+        /// <param name="pos">Int array with 2 entries: the row and column index of the space</param>
+        /// <param name="num">Number to check</param>
+        /// <returns>True if valid, false otherwise.</returns>
+        protected bool IsValid(Sudoku sudoku, int[] pos, int num)
+        {
+            if (IsValidInRow(sudoku, pos, num) && IsValidInCol(sudoku, pos, num) && IsValidInSquare(sudoku, pos, num))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Checks if number is valid in current row
+        /// </summary>
+        /// <param name="sudoku">The sudoku to check</param>
+        /// <param name="pos">The position the new number should be inserted</param>
+        /// <param name="num">Number to check</param>
+        /// <returns>True if number is valid, false otherwise.</returns>
+        protected bool IsValidInRow(Sudoku sudoku, int[] pos, int num)
+        {
+            int[] row = sudoku.GetRow(pos[0]);
+            if (row.Contains(num))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Checks if number is valid in current column
+        /// </summary>
+        /// <param name="sudoku">The sudoku to check</param>
+        /// <param name="pos">The position the new number should be inserted</param>
+        /// <param name="num">Number to check</param>
+        /// <returns>True if number is valid, false otherwise.</returns>
+        protected bool IsValidInCol(Sudoku sudoku, int[] pos, int num)
+        {
+            int[] column = sudoku.GetColumn(pos[1]);
+            if (column.Contains(num))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Checks if number is valid in current square
+        /// </summary>
+        /// <param name="sudoku">The sudoku to check</param>
+        /// <param name="pos">The position the new number should be inserted</param>
+        /// <param name="num">Number to check</param>
+        /// <returns>True if number is valid, false otherwise.</returns>
+        protected bool IsValidInSquare(Sudoku sudoku, int[] pos, int num)
+        {
+            int index = GetSquareIndex(pos[0], pos[1]); ;
+            int[] square = sudoku.GetSquare(index);
+            if (square.Contains(num))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Returns the index of the square that the entry described by indices i and j belongs to
+        /// </summary>
+        /// <param name="i">row of the entry</param>
+        /// <param name="j">column of the entry</param>
+        /// <returns>The index of the square</returns>
+        protected int GetSquareIndex(int i, int j)
+        {
+            double frac1 = i / 3;
+            double frac2 = j / 3;
+            return (Convert.ToInt32(Math.Floor(frac1)) * 3 + Convert.ToInt32(Math.Floor(frac2)));
+        }
+
+        /// <summary>
+        /// Searches Sudoku for first unoccupied space
+        /// searches row-wise
+        /// </summary>
+        /// <param name="sudoku">The sudoku that should be searched</param>
+        /// <returns>Indices of first unoccupied space, [-1, -1] if none found</returns>
+        protected int[] FindUnoccupiedSpace(Sudoku sudoku)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    if (sudoku.GetElement(i, j) == 0)
+                    {
+                        return new int[] { i, j };
+                    }
+                }
+            }
+            return new int[] { -1, -1 };
+        }
+
         #endregion
     }
 }
