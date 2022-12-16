@@ -1,6 +1,7 @@
 ﻿using SudokuDefinition;
 using SudokuSolver;
 using System;
+using System.Collections.Generic;
 
 namespace ComplexSolverDefinition
 {
@@ -39,36 +40,135 @@ namespace ComplexSolverDefinition
         /// <exception cref="NotImplementedException"></exception>
         public override bool SolveSudoku(Sudoku sudoku)
         {
+            bool foundOne = false;
             // Technique
             // first search for single entries - maybe the sudoku is really really easy and solved by this alone :D
             SearchAndFillAllSingleEntries(sudoku);
-
+            List<int>[,] possibleValues = InitPossibleValues();
+            // get possible numbers for each cell
+            // build 3D matrix structure of all possible values for each cell
+            possibleValues = FillPossibleValues(sudoku, possibleValues);
             // while not solved
             while (CheckSudoku(sudoku))
             {
                 // no more single empty cells
-                
-                // build 3D matrix structure of all possible values for each cell
-                // isValid helps here.
                 // reduce: delete all numbers that are not valid in matrix
                 // single entry in matrix? Then fill!
 
-                // not? Try brute force.
+                ReducePossibleValues(sudoku, possibleValues);
+                CheckPossibleValuesForSingularEntry(sudoku, possibleValues);
 
-                SearchAndFillAllSingleEntries(sudoku);
+                foundOne = SearchAndFillAllSingleEntries(sudoku);
+
+                // not? Try brute force.
+                //if (!foundOne)
+                //{
+                //    // brute force?
+                //}
             }
 
-            SearchAndFillAllSingleEntries(sudoku);
+            //SearchAndFillAllSingleEntries(sudoku);
             _sudoku = sudoku;
 
             return true;
         }
 
         /// <summary>
+        /// checks if there is only one value in possibleValues for a single cell and sets it
+        /// </summary>
+        /// <param name="sudoku">The sudoku to solve</param>
+        /// <param name="possibleValues">The list of possible values</param>
+        private void CheckPossibleValuesForSingularEntry(Sudoku sudoku, List<int>[,] possibleValues)
+        {
+            for(int i = 0; i < 9; i++)
+            {
+                for(int j = 0; j < 9; j++)
+                {
+                    if(sudoku.GetElement(i, j) == 0)
+                    {
+                        // if we are in empty cell
+                        if (possibleValues[i, j].Count == 1)
+                        {
+                            // only a single possible value
+                            sudoku.SetElement(i, j, possibleValues[i, j][0]);
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reduce the number of possible values per cell with Sudoku solving logic
+        /// </summary>
+        /// <param name="sudoku">The sudoku to solve</param>
+        /// <param name="possibleValues">All possible values for each cell</param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void ReducePossibleValues(Sudoku sudoku, List<int>[,] possibleValues)
+        {
+            // With how I construct the possible values, is this even necessary?
+            // Probably yes, but with additional logic
+            // look at notes in tablet
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// creates the list to store all possible values in and initializes it
+        /// </summary>
+        /// <returns>the empty list</returns>
+        private List<int>[,] InitPossibleValues()
+        {
+            List<int>[,] possibleValues = new List<int>[9, 9];
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    possibleValues[i, j] = new List<int>();
+                }
+            }
+            return possibleValues;
+        }
+
+        /// <summary>
+        /// Fills the list with all possible values for each cell
+        /// </summary>
+        /// <param name="sudoku">The sudoku to solve</param>
+        /// <param name="possibleValues">The list in which to store all possible values</param>
+        /// <returns>The filled list</returns>
+        private List<int>[,] FillPossibleValues(Sudoku sudoku, List<int>[,] possibleValues)
+        {
+            int[] pos = new int[2];
+            // iterate through all rows
+            for (int i = 0; i < 9; i++)
+            {
+                // iterate through all columns
+                for (int j = 0; j < 9; j++)
+                {
+                    if(sudoku.GetElement(i, j) == 0)
+                    {
+                        // only do this if not filled already
+                        // iterate through all possible numbers
+                        for (int k = 1; k < 10; k++)
+                        {
+                            // at this point, is this even faster than the brute force algorithm?
+                            pos[0] = i;
+                            pos[1] = j;
+                            if (IsValid(sudoku, pos, k))
+                            {
+                                possibleValues[i, j].Add(k);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return possibleValues;
+        }
+
+        /// <summary>
         /// Search through all rows, columns and squares and fill all cells where only one number is missing
         /// </summary>
         /// <param name="sudoku">The sudoku to solve</param>
-        private void SearchAndFillAllSingleEntries(Sudoku sudoku)
+        private bool SearchAndFillAllSingleEntries(Sudoku sudoku)
         {
             bool foundOne = false;
 
@@ -85,6 +185,7 @@ namespace ComplexSolverDefinition
             if (foundOne) SearchAndFillAllSingleEntries(sudoku);
             // Is this an infinity loop?
             // No. If foundOne is false, it will get out.
+            return foundOne;
         }
 
         /// <summary>
