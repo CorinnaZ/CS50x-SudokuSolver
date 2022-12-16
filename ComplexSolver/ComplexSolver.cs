@@ -49,16 +49,16 @@ namespace ComplexSolverDefinition
             // build 3D matrix structure of all possible values for each cell
             possibleValues = FillPossibleValues(sudoku, possibleValues);
             // while not solved
-            while (CheckSudoku(sudoku))
+            while (!CheckSudoku(sudoku))
             {
                 // no more single empty cells
                 // reduce: delete all numbers that are not valid in matrix
                 // single entry in matrix? Then fill!
 
-                ReducePossibleValues(sudoku, possibleValues);
+                //ReducePossibleValues(sudoku, possibleValues);
                 CheckPossibleValuesForSingularEntry(sudoku, possibleValues);
 
-                foundOne = SearchAndFillAllSingleEntries(sudoku);
+                SearchAndFillAllSingleEntries(sudoku);
 
                 // not? Try brute force.
                 //if (!foundOne)
@@ -80,17 +80,63 @@ namespace ComplexSolverDefinition
         /// <param name="possibleValues">The list of possible values</param>
         private void CheckPossibleValuesForSingularEntry(Sudoku sudoku, List<int>[,] possibleValues)
         {
-            for(int i = 0; i < 9; i++)
+            for (int i = 0; i < 9; i++)
             {
-                for(int j = 0; j < 9; j++)
+                for (int j = 0; j < 9; j++)
                 {
-                    if(sudoku.GetElement(i, j) == 0)
+                    if (sudoku.GetElement(i, j) == 0)
                     {
                         // if we are in empty cell
                         if (possibleValues[i, j].Count == 1)
                         {
                             // only a single possible value
-                            sudoku.SetElement(i, j, possibleValues[i, j][0]);
+                            int newValue = possibleValues[i, j][0];
+                            sudoku.SetElement(i, j, newValue);
+                            DeleteElementFromPossibleValues(sudoku, i, j, newValue, possibleValues);
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// After one entry is set, delete the number from the possible values in the square, row and column
+        /// </summary>
+        /// <param name="i">The row where a number was just set</param>
+        /// <param name="j">The column where a new number was just set</param>
+        /// <param name="newValue">The new value that was just written</param>
+        /// <param name="possibleValues">The array of all possible values</param>
+        private void DeleteElementFromPossibleValues(Sudoku sudoku, int row, int col, int newValue, List<int>[,] possibleValues)
+        {
+            for (int k = 0; k < 9; k++)
+            {
+                foreach (var listEntry in possibleValues[row, k])
+                {
+                    if (listEntry == newValue)
+                    {
+                        possibleValues[row, k].Remove(listEntry);
+                    }
+                }
+                foreach (var listEntry in possibleValues[k, col])
+                {
+                    if (listEntry == newValue)
+                    {
+                        possibleValues[k, col].Remove(listEntry);
+                    }
+                } 
+            }
+            // get indices of top left corner of square
+            int rowIdx = Convert.ToInt32(Math.Floor((double)(row / 3))) * 3;
+            int colIdx = Convert.ToInt32(Math.Floor((double)(col / 3))) * 3;
+            for (int i = rowIdx; i < rowIdx + 3; i++)
+            {
+                for (int j = colIdx; j < colIdx + 3; j++)
+                {
+                    foreach (var listEntry in possibleValues[i, j])
+                    {
+                        if (listEntry == newValue)
+                        {
+                            possibleValues[i, j].Remove(listEntry);
                         }
                     }
                 }
@@ -143,7 +189,7 @@ namespace ComplexSolverDefinition
                 // iterate through all columns
                 for (int j = 0; j < 9; j++)
                 {
-                    if(sudoku.GetElement(i, j) == 0)
+                    if (sudoku.GetElement(i, j) == 0)
                     {
                         // only do this if not filled already
                         // iterate through all possible numbers
