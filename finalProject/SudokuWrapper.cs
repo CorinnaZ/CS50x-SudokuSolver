@@ -21,7 +21,7 @@ namespace finalProject
         #region internal variables
         // internal variables
         public event PropertyChangedEventHandler? PropertyChanged;
-        private readonly int[,] _mappedSudoku;
+        private int[,] _mappedSudoku;
         private string _logpath = "";
         private string _savepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CS50xLogSettings.set");
         private string _timeMeasurement = "";
@@ -30,6 +30,7 @@ namespace finalProject
         public RelayCommand SolveComplexCommand { get; set; }
         public RelayCommand SaveSudokuCommand { get; set; }
         public RelayCommand LoadSudokuCommand { get; set; }
+        public RelayCommand CheckSudokuCommand { get; set; }
 
         public int this[int i, int j]
         {
@@ -39,8 +40,8 @@ namespace finalProject
         public string Logpath
         {
             get { return _logpath; }
-            set { _logpath = value; OnPropertyChanged(); SaveLogpath(); } 
-            }
+            set { _logpath = value; OnPropertyChanged(); SaveLogpath(); }
+        }
 
         private void SetValue(ref int v, int value)
         {
@@ -80,11 +81,64 @@ namespace finalProject
             SolveComplexCommand = new RelayCommand(o => SolveComplex());
             SaveSudokuCommand = new RelayCommand(o => SaveSudoku());
             LoadSudokuCommand = new RelayCommand(o => LoadSudoku());
+            CheckSudokuCommand = new RelayCommand(o => CheckWIPSudoku());
         }
 
         #endregion
 
         #region Utility Functions
+
+        /// <summary>
+        /// Checks the currently displayed sudoku to see if it is filled correctly
+        /// It lets a solver solve the sudoku and compares
+        /// </summary>
+        private void CheckWIPSudoku()
+        {
+            // Check current sudoku
+            // i.e. solve with fastest method
+            // and compare values
+            bool solvable = false;
+            Sudoku mappedSudoku = new Sudoku(_mappedSudoku);
+            if(!mappedSudoku.IsValidSudoku())
+            {
+                MessageBox.Show("The current sudoku is not valid. Please check!");
+                return;
+            }
+            Sudoku wipSudoku = mappedSudoku.Copy();
+            BruteForceSolver solver = new BruteForceSolver(Logpath);
+            solvable = solver.SolveSudoku(mappedSudoku.Copy());
+            if(!solvable)
+            {
+                MessageBox.Show("It seems you made a mistake.");
+                return;
+            }
+            Sudoku finishedSudoku = solver._sudoku;
+            int elemWIP;
+            bool correct = true;
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    elemWIP = wipSudoku.GetElement(i, j);
+                    if (elemWIP != 0)
+                    {
+                        if (elemWIP != finishedSudoku.GetElement(i, j))
+                        {
+                            correct = false;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (correct)
+            {
+                MessageBox.Show("So far, so good!");
+            }
+            else
+            {
+                MessageBox.Show("It seems you made a mistake.");
+            }
+        }
 
         /// <summary>
         /// This function starts the brute force sudoku solver and measures and displays the time it took to solve.
@@ -93,8 +147,16 @@ namespace finalProject
         {
             DateTime start = DateTime.Now;
 
+            Sudoku mappedSudoku = new Sudoku(_mappedSudoku);
+
+            if (!mappedSudoku.IsValidSudoku())
+            {
+                MessageBox.Show("The current sudoku is not valid. Please check!");
+                return;
+            }
+
             BruteForceSolver solver = new BruteForceSolver(Logpath);
-            solver.SolveSudoku(new Sudoku(_mappedSudoku));
+            solver.SolveSudoku(mappedSudoku.Copy());
             SudokuToArray(solver._sudoku);
 
             DateTime end = DateTime.Now;
@@ -109,8 +171,16 @@ namespace finalProject
         {
             DateTime start = DateTime.Now;
 
+            Sudoku mappedSudoku = new Sudoku(_mappedSudoku);
+
+            if (!mappedSudoku.IsValidSudoku())
+            {
+                MessageBox.Show("The current sudoku is not valid. Please check!");
+                return;
+            }
+
             ComplexSolver solver = new ComplexSolver(Logpath);
-            solver.SolveSudoku(new Sudoku(_mappedSudoku));
+            solver.SolveSudoku(mappedSudoku.Copy());
             SudokuToArray(solver._sudoku);
 
             DateTime end = DateTime.Now;
@@ -202,7 +272,7 @@ namespace finalProject
         /// <param name="line">The string with 81 numbers of the sudoku</param>
         private void DisplaySudoku(string line)
         {
-            if(line.Length == 81)
+            if (line.Length == 81)
             {
                 int number;
                 Sudoku tmp = new Sudoku(new int[9, 9]);

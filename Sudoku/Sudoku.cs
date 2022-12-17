@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace SudokuDefinition
 {
@@ -71,15 +72,68 @@ namespace SudokuDefinition
             int startI = (idx % 3) * 3;
             double fraction = idx / 3;
             int startJ = Convert.ToInt32(Math.Floor(fraction)) * 3;
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
-                for(int j = 0; j < 3; j++)
+                for (int j = 0; j < 3; j++)
                 {
                     square[j * 3 + i] = _sudoku[startJ + j, startI + i];
                 }
             }
 
             return square;
+        }
+
+        /// <summary>
+        /// Copies a sudoku as I need to have a copy without referencing the original sudoku
+        /// </summary>
+        /// <returns>A copy of the sudoku it was called with</returns>
+        public Sudoku Copy()
+        {
+            Sudoku copy = new Sudoku(new int[9, 9]);
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    copy.SetElement(i, j, GetElement(i, j));
+                }
+            }
+
+            return copy;
+        }
+
+        /// <summary>
+        /// Checks if a sudoku is valid. This can also be done when the sudoku is not completely filled,
+        /// as it ignores all empty cells and only looks if in each row, column and square, each number only occurs once.
+        /// </summary>
+        /// <returns>True if valid, false otherwise</returns>
+        public bool IsValidSudoku()
+        {
+            bool isValid = true;
+
+            int[] distinctElem;
+            for(int i = 0; i < 9; i++)
+            {
+                distinctElem = GetRow(i);
+                distinctElem = distinctElem.Where(x => x != 0).ToArray();
+                // https://stackoverflow.com/questions/19757992/how-do-i-check-if-my-array-has-repeated-values-inside-it
+                if (distinctElem.Length != distinctElem.Distinct().Count())
+                {
+                    isValid = false; break;
+                }
+                distinctElem = GetColumn(i);
+                distinctElem = distinctElem.Where(x => x != 0).ToArray();
+                if (distinctElem.Length != distinctElem.Distinct().Count())
+                {
+                    isValid = false; break;
+                }
+                distinctElem = GetSquare(i);
+                distinctElem = distinctElem.Where(x => x != 0).ToArray();
+                if (distinctElem.Length != distinctElem.Distinct().Count())
+                {
+                    isValid = false; break;
+                }
+            }
+            return isValid;
         }
 
         /// <summary>

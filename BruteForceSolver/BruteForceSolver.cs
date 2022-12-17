@@ -44,7 +44,6 @@ namespace BruteForceSolverDefinition
         {
             // find unoccupied space
             // if none: return sudoku
-
             _logServant.PrintMessage("Step in between: ");
             _logServant.PrintSudoku(sudoku);
 
