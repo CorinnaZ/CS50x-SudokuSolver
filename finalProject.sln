@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SudokuTest", "SudokuTest\Su
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Servants", "Servants\Servants.csproj", "{F550DB7D-DCCF-4323-A98F-6B01F9F816E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpTest", "CSharpTest\CSharpTest.csproj", "{21F6718B-365C-4DFE-86AC-9D029164BD57}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,10 +57,6 @@ Global
 		{F550DB7D-DCCF-4323-A98F-6B01F9F816E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F550DB7D-DCCF-4323-A98F-6B01F9F816E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F550DB7D-DCCF-4323-A98F-6B01F9F816E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21F6718B-365C-4DFE-86AC-9D029164BD57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21F6718B-365C-4DFE-86AC-9D029164BD57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21F6718B-365C-4DFE-86AC-9D029164BD57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21F6718B-365C-4DFE-86AC-9D029164BD57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
