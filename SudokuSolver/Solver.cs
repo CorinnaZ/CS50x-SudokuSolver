@@ -12,7 +12,7 @@ namespace SudokuSolver
     {
         // class variables
         public Sudoku _sudoku;
-        static string _logpath = "";
+        public string _logpath = "";
         public DebugServant _logServant;
 
         // constructors
@@ -75,7 +75,7 @@ namespace SudokuSolver
             for (int i = 0; i < 9; i++)
             {
                 int[] square = sudoku.GetSquare(i);
-                if (!(square.Contains(0) && square.Contains(1) && square.Contains(2) && square.Contains(3) && square.Contains(4) && square.Contains(5)
+                if (!(square.Contains(9) && square.Contains(1) && square.Contains(2) && square.Contains(3) && square.Contains(4) && square.Contains(5)
                      && square.Contains(6) && square.Contains(7) && square.Contains(8)))
                 {
                     return false;
@@ -95,7 +95,7 @@ namespace SudokuSolver
             for (int i = 0; i < 9; i++)
             {
                 int[] column = sudoku.GetColumn(i);
-                if (!(column.Contains(0) && column.Contains(1) && column.Contains(2) && column.Contains(3) && column.Contains(4) && column.Contains(5)
+                if (!(column.Contains(9) && column.Contains(1) && column.Contains(2) && column.Contains(3) && column.Contains(4) && column.Contains(5)
                      && column.Contains(6) && column.Contains(7) && column.Contains(8)))
                 {
                     return false;
@@ -115,8 +115,8 @@ namespace SudokuSolver
             for (int i = 0; i < 9; i++)
             {
                 int[] row = sudoku.GetRow(i);
-                if (!(row.Contains(0) && row.Contains(1) && row.Contains(2) && row.Contains(3) && row.Contains(4) && row.Contains(5)
-                     && row.Contains(6) && row.Contains(7) && row.Contains(8)))
+                if (!(row.Contains(1) && row.Contains(2) && row.Contains(3) && row.Contains(4) && row.Contains(5) && row.Contains(6)
+                     && row.Contains(7) && row.Contains(8) && row.Contains(9)))
                 {
                     return false;
                 }

@@ -83,6 +83,22 @@ namespace SudokuDefinition
         }
 
         /// <summary>
+        /// Given an index of a square and an element number in the square, return the index of the element in sudoku coordinates
+        /// </summary>
+        /// <param name="square">Index of the square</param>
+        /// <param name="element">Index of the element in the square (0...8)</param>
+        /// <returns>Row and column coordinates within the sudoku</returns>
+        public int[] GetIndexInSquare(int square, int element)
+        {
+            int[] idx = new int[2];
+            int row = Convert.ToInt32(Math.Floor((double)(square / 3))) * 3 + Convert.ToInt32(Math.Floor((double)(element / 3)));
+            int column = (square % 3) * 3 + (element % 3);
+            idx[0] = row;
+            idx[1] = column;
+            return idx;
+        }
+
+        /// <summary>
         /// Returns the element described by row and col
         /// </summary>
         /// <param name="row">Row in which the element lives</param>

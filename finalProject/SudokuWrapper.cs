@@ -16,12 +16,13 @@ namespace finalProject
 {
     public class SudokuWrapper : INotifyPropertyChanged
     {
-
+        #region internal variables
         // internal variables
         public event PropertyChangedEventHandler? PropertyChanged;
         private readonly int[,] _mappedSudoku;
         private string _logpath = "";
         private string _savepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CS50xLogSettings.set");
+        private string _timeMeasurement = "";
         public RelayCommand LoadExampleSudokuCommand { get; set; }
         public RelayCommand SolveBruteForceCommand { get; set; }
         public RelayCommand SolveComplexCommand { get; set; }
@@ -34,12 +35,18 @@ namespace finalProject
         public string Logpath
         {
             get { return _logpath; }
-            set { _logpath = value; OnPropertyChanged(); SaveLogpath(); }
-        }
+            set { _logpath = value; OnPropertyChanged(); SaveLogpath(); } 
+            }
 
         private void SetValue(ref int v, int value)
         {
             v = value;
+        }
+
+        public string TimeMeasurement
+        {
+            get { return _timeMeasurement; }
+            set { _timeMeasurement = value; OnPropertyChanged(); }
         }
 
         private int number = 0;
@@ -49,7 +56,14 @@ namespace finalProject
             set { number = value; }
         }
 
+        #endregion
+
+        #region Constructors
         // Constructors
+        /// <summary>
+        /// Constructor for the sudoku wrapper (model).
+        /// It loads the logpath and provides commands for actions in the GUI
+        /// </summary>
         public SudokuWrapper()
         {
             _mappedSudoku = new int[9, 9];
@@ -60,27 +74,47 @@ namespace finalProject
             LoadExampleSudokuCommand = new RelayCommand(o => LoadExampleSudoku());
             SolveBruteForceCommand = new RelayCommand(o => SolveBruteForce());
             SolveComplexCommand = new RelayCommand(o => SolveComplex());
-
         }
 
-
+        #endregion
 
         #region Utility Functions
 
+        /// <summary>
+        /// This function starts the brute force sudoku solver and measures and displays the time it took to solve.
+        /// </summary>
         private void SolveBruteForce()
         {
+            DateTime start = DateTime.Now;
+
             BruteForceSolver solver = new BruteForceSolver(Logpath);
             solver.SolveSudoku(new Sudoku(_mappedSudoku));
             SudokuToArray(solver._sudoku);
+
+            DateTime end = DateTime.Now;
+            TimeSpan timeDiff = end - start;
+            TimeMeasurement = "Time taken to solve with brute force solver: " + Convert.ToInt32(timeDiff.TotalSeconds).ToString() + " seconds.";
         }
 
+        /// <summary>
+        /// This function starts the more complex sudoku solver and measures and displays the time it took to solve.
+        /// </summary>
         private void SolveComplex()
         {
+            DateTime start = DateTime.Now;
+
             ComplexSolver solver = new ComplexSolver(Logpath);
             solver.SolveSudoku(new Sudoku(_mappedSudoku));
             SudokuToArray(solver._sudoku);
+
+            DateTime end = DateTime.Now;
+            TimeSpan timeDiff = end - start;
+            TimeMeasurement = "Time taken to solve with complex solver: " + Convert.ToInt32(timeDiff.TotalSeconds).ToString() + " seconds.";
         }
 
+        /// <summary>
+        /// This function loads an example sudoku into the GUI.
+        /// </summary>
         private void LoadExampleSudoku()
         {
             int[,] easyTest2 = new int[,] {  { 0, 2, 7, 0, 0, 0, 9, 1, 3 }, { 9, 0, 0, 3, 4, 0, 6, 0, 7 }, { 0, 0, 0, 0, 0, 0, 0, 0, 4 },
@@ -90,6 +124,10 @@ namespace finalProject
             SudokuToArray(test);
         }
 
+        /// <summary>
+        /// Helper function to display the sudoku in the GUI grid.
+        /// </summary>
+        /// <param name="sudoku"></param>
         public void SudokuToArray(Sudoku sudoku)
         {
             // rows
@@ -106,7 +144,10 @@ namespace finalProject
             this.OnPropertyChanged();
         }
 
-
+        /// <summary>
+        /// This function calls the event handler in case a property (variable value) changed to update the GUI
+        /// </summary>
+        /// <param name="propertyName">Name of the property that was changed</param>
         void OnPropertyChanged(string propertyName = null)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -116,6 +157,9 @@ namespace finalProject
             }
         }
 
+        /// <summary>
+        /// This function reads the logpath out of the file in %appdata%
+        /// </summary>
         private void LoadLogpath()
         {
             try
@@ -126,12 +170,15 @@ namespace finalProject
                 }
             }
             catch { }
-            
+
         }
 
+        /// <summary>
+        /// This function saves the current logpath in a file in %appdata%
+        /// </summary>
         private void SaveLogpath()
         {
-            
+
             // save in appdata
             using (StreamWriter sw = new StreamWriter(_savepath, false))
             {

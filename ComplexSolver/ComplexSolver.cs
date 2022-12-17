@@ -2,6 +2,7 @@
 using SudokuSolver;
 using System;
 using System.Collections.Generic;
+using BruteForceSolverDefinition;
 
 namespace ComplexSolverDefinition
 {
@@ -34,42 +35,47 @@ namespace ComplexSolverDefinition
         #region utility functions
         /// <summary>
         /// More sophisticated algorithm to solve a sudoku
+        /// Basically, it constructs a 3D matrix "behind" the sudoku to remember all possible values and systematically reduces the matrix until only one value per cell remains.
+        /// Time measuring code taken from: https://dotnetcodr.com/2016/10/20/two-ways-to-measure-time-in-c-net/
         /// </summary>
         /// <param name="sudoku">The sudoku to solve</param>
         /// <returns>True if solved successfully, false otherwise</returns>
-        /// <exception cref="NotImplementedException"></exception>
         public override bool SolveSudoku(Sudoku sudoku)
         {
-            bool foundOne = false;
-            // Technique
+            // Timing
+            DateTime start = DateTime.Now;
+            
+            // print original sudoku
+            _logServant.PrintMessage("Original Sudoku");
+            _logServant.PrintSudoku(sudoku);
+            
+            bool setOne = false;
+
             // first search for single entries - maybe the sudoku is really really easy and solved by this alone :D
             SearchAndFillAllSingleEntries(sudoku);
             List<int>[,] possibleValues = InitPossibleValues();
             // get possible numbers for each cell
             // build 3D matrix structure of all possible values for each cell
             possibleValues = FillPossibleValues(sudoku, possibleValues);
+
             // while not solved
             while (!CheckSudoku(sudoku))
             {
                 // no more single empty cells
                 // reduce: delete all numbers that are not valid in matrix
                 // single entry in matrix? Then fill!
-
-                //ReducePossibleValues(sudoku, possibleValues);
-                CheckPossibleValuesForSingularEntry(sudoku, possibleValues);
-
+                setOne = CheckPossibleValuesForSingularEntry(sudoku, possibleValues);
+                _logServant.PrintMessage("Sudoku after logic call:");
+                _logServant.PrintSudoku(sudoku);
                 SearchAndFillAllSingleEntries(sudoku);
-
-                // not? Try brute force.
-                //if (!foundOne)
-                //{
-                //    // brute force?
-                //}
+                _logServant.PrintMessage("Sudoku after SearchAndFillAllSingleEntries:");
+                _logServant.PrintSudoku(sudoku);
             }
 
-            //SearchAndFillAllSingleEntries(sudoku);
             _sudoku = sudoku;
-
+            DateTime end = DateTime.Now;
+            TimeSpan timeDiff = end - start;
+            _logServant.PrintMessage("Time taken to solve with complex solver: "+Convert.ToInt32(timeDiff.TotalSeconds).ToString());
             return true;
         }
 
@@ -78,8 +84,9 @@ namespace ComplexSolverDefinition
         /// </summary>
         /// <param name="sudoku">The sudoku to solve</param>
         /// <param name="possibleValues">The list of possible values</param>
-        private void CheckPossibleValuesForSingularEntry(Sudoku sudoku, List<int>[,] possibleValues)
+        private bool CheckPossibleValuesForSingularEntry(Sudoku sudoku, List<int>[,] possibleValues)
         {
+            bool setOne = false;
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
@@ -93,10 +100,12 @@ namespace ComplexSolverDefinition
                             int newValue = possibleValues[i, j][0];
                             sudoku.SetElement(i, j, newValue);
                             DeleteElementFromPossibleValues(sudoku, i, j, newValue, possibleValues);
+                            setOne = true;
                         }
                     }
                 }
             }
+            return setOne;
         }
 
         /// <summary>
@@ -115,6 +124,7 @@ namespace ComplexSolverDefinition
                     if (listEntry == newValue)
                     {
                         possibleValues[row, k].Remove(listEntry);
+                        break;
                     }
                 }
                 foreach (var listEntry in possibleValues[k, col])
@@ -122,6 +132,7 @@ namespace ComplexSolverDefinition
                     if (listEntry == newValue)
                     {
                         possibleValues[k, col].Remove(listEntry);
+                        break;
                     }
                 } 
             }
@@ -137,24 +148,11 @@ namespace ComplexSolverDefinition
                         if (listEntry == newValue)
                         {
                             possibleValues[i, j].Remove(listEntry);
+                            break;
                         }
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Reduce the number of possible values per cell with Sudoku solving logic
-        /// </summary>
-        /// <param name="sudoku">The sudoku to solve</param>
-        /// <param name="possibleValues">All possible values for each cell</param>
-        /// <exception cref="NotImplementedException"></exception>
-        private void ReducePossibleValues(Sudoku sudoku, List<int>[,] possibleValues)
-        {
-            // With how I construct the possible values, is this even necessary?
-            // Probably yes, but with additional logic
-            // look at notes in tablet
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -196,6 +194,7 @@ namespace ComplexSolverDefinition
                         for (int k = 1; k < 10; k++)
                         {
                             // at this point, is this even faster than the brute force algorithm?
+                            // Implement time measurement to check.
                             pos[0] = i;
                             pos[1] = j;
                             if (IsValid(sudoku, pos, k))
@@ -222,13 +221,26 @@ namespace ComplexSolverDefinition
             {
                 // this looks ugly :(
                 foundOne = SearchAndFillInRow(sudoku, i);
-                if (foundOne) break;
+                if (foundOne)
+                {
+                    break;
+                }
                 foundOne = SearchAndFillInColumn(sudoku, i);
-                if (foundOne) break;
+                if (foundOne)
+                {
+                    break;
+                }
                 foundOne = SearchAndFillInSquare(sudoku, i);
-                if (foundOne) break;
+                if (foundOne)
+                {
+                    break;
+                }
             }
-            if (foundOne) SearchAndFillAllSingleEntries(sudoku);
+            if (foundOne)
+            {
+                _logServant.PrintSudoku(sudoku);
+                SearchAndFillAllSingleEntries(sudoku);
+            }
             // Is this an infinity loop?
             // No. If foundOne is false, it will get out.
             return foundOne;
@@ -245,6 +257,7 @@ namespace ComplexSolverDefinition
             int[] square = sudoku.GetSquare(idx);
             int counter = 0;
             int position = 0;
+            int[] indices = new int[2];
             for (int i = 0; i < square.Length; i++)
             {
                 // empty cell
@@ -264,7 +277,10 @@ namespace ComplexSolverDefinition
                     // https://www.tutorialkart.com/c-sharp-tutorial/c-sharp-check-if-array-contains-specific-element/
                     if (!Array.Exists<int>(square, element => element == i))
                     {
-                        sudoku.SetElement(position, position, i);
+                        indices = sudoku.GetIndexInSquare(idx, position);
+                        int rowIdx = indices[0];
+                        int colIdx = indices[1];
+                        sudoku.SetElement(rowIdx, colIdx, i);
                         return true;
                     }
                 }
@@ -302,7 +318,7 @@ namespace ComplexSolverDefinition
                     // https://www.tutorialkart.com/c-sharp-tutorial/c-sharp-check-if-array-contains-specific-element/
                     if (!Array.Exists<int>(col, element => element == i))
                     {
-                        sudoku.SetElement(position, position, i);
+                        sudoku.SetElement(position, idx, i);
                         return true;
                     }
                 }

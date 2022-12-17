@@ -34,8 +34,8 @@ namespace SudokuSolverTest
             //Solver solver = new Solver(); // this is now an abstract class
             // Sudoku result = solver.SolveSudoku(easySudoku);
             //int[] square = easySudoku.GetSquare(1);
-            //BruteForceSolver solver = new BruteForceSolver(test, "D:\\Entwicklung\\CS50x\\finalProject\\DebugLogSudoku.log");
-            ComplexSolver solver = new ComplexSolver(test, "D:\\Entwicklung\\CS50x\\finalProject\\DebugLogSudoku.log");
+            BruteForceSolver solver = new BruteForceSolver(test, "D:\\Entwicklung\\CS50x\\finalProject\\DebugLogSudoku.log");
+            //ComplexSolver solver = new ComplexSolver(test, "D:\\Entwicklung\\CS50x\\finalProject\\DebugLogSudoku.log");
             //bool res = solver.CheckSudoku(easySudoku);
 
             bool solved = solver.SolveSudoku(easySudoku);

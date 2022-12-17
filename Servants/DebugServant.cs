@@ -14,6 +14,10 @@ namespace Servants
         string _logpath = "";
 
         // constructor
+        /// <summary>
+        /// Constructor for the DebugServant. Saves the path and initializes the log file.
+        /// </summary>
+        /// <param name="path"></param>
         public DebugServant(string path)
         {
             _logpath = path;
@@ -22,6 +26,10 @@ namespace Servants
 
         #region Utility functions
 
+        /// <summary>
+        /// Initializes the log: if an old file exists, it deletes the contents and creates a new empty file with an initial message.
+        /// </summary>
+        /// <returns>True if everything worked, false if an error occured.</returns>
         public bool InitLog()
         {
             try
@@ -151,9 +159,7 @@ namespace Servants
             {
                 sw.WriteLine("---------------------");
             }
-
         }
-
 
         #endregion
 

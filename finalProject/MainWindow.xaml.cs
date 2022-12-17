@@ -18,6 +18,7 @@ namespace finalProject
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// GUI help (except comments) taken from https://stackoverflow.com/questions/54055388/sudoku-in-wpf-what-base-element-should-i-use-for-the-table
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -27,6 +28,9 @@ namespace finalProject
         private const int Thin = 1;
         private const int Thick = 3;
 
+        /// <summary>
+        /// Constructor for the main window. Initializes the components, view model and the actual table
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -36,11 +40,17 @@ namespace finalProject
 
         public SudokuWrapper ViewModel => (SudokuWrapper)DataContext;
 
+        /// <summary>
+        /// Sets the data context for the xaml file to my function "SudokuWrapper"
+        /// </summary>
         private void InitializeViewModel()
         {
             DataContext = new SudokuWrapper();
         }
 
+        /// <summary>
+        /// Initializes the table with its borders and cells
+        /// </summary>
         private void InitializeSudokuTable()
         {
             var grid = new UniformGrid
@@ -62,6 +72,12 @@ namespace finalProject
             SudokuTable.Child = grid;
         }
 
+        /// <summary>
+        /// Creates borders for the table
+        /// </summary>
+        /// <param name="i">Row</param>
+        /// <param name="j">Column</param>
+        /// <returns>Border object</returns>
         private static Border CreateBorder(int i, int j)
         {
             var left = j % InnerWidth == 0 ? Thick : Thin;
@@ -76,6 +92,12 @@ namespace finalProject
             };
         }
 
+        /// <summary>
+        /// Creates a text box and initializes the binding
+        /// </summary>
+        /// <param name="i">Row</param>
+        /// <param name="j">Column</param>
+        /// <returns>A text box element</returns>
         private TextBox CreateTextBox(int i, int j)
         {
             var textBox = new TextBox
