@@ -21,6 +21,11 @@ namespace SudokuSolver
             _logServant = new DebugServant(_logpath);
         }
 
+        public Solver(DebugServant servant)
+        {
+            _logServant = servant;
+        }
+
         public Solver(Sudoku sudoku)
         {
             _sudoku = sudoku;

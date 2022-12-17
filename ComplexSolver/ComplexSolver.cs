@@ -3,6 +3,7 @@ using SudokuSolver;
 using System;
 using System.Collections.Generic;
 using BruteForceSolverDefinition;
+using Servants;
 
 namespace ComplexSolverDefinition
 {
@@ -30,6 +31,11 @@ namespace ComplexSolverDefinition
 
         }
 
+        public ComplexSolver(DebugServant servant) : base(servant)
+        {
+
+        }
+
         #endregion
 
         #region utility functions
@@ -42,9 +48,8 @@ namespace ComplexSolverDefinition
         /// <returns>True if solved successfully, false otherwise</returns>
         public override bool SolveSudoku(Sudoku sudoku)
         {
-            // Timing
-            DateTime start = DateTime.Now;
-            
+            _sudoku = sudoku;
+
             // print original sudoku
             _logServant.PrintMessage("Original Sudoku");
             _logServant.PrintSudoku(sudoku);
@@ -73,9 +78,6 @@ namespace ComplexSolverDefinition
             }
 
             _sudoku = sudoku;
-            DateTime end = DateTime.Now;
-            TimeSpan timeDiff = end - start;
-            _logServant.PrintMessage("Time taken to solve with complex solver: "+Convert.ToInt32(timeDiff.TotalSeconds).ToString());
             return true;
         }
 

@@ -30,6 +30,11 @@ namespace BruteForceSolverDefinition
         {
 
         }
+
+        public BruteForceSolver(DebugServant servant) : base(servant)
+        {
+
+        }
         #endregion
 
         #region Utility Functions
@@ -44,6 +49,7 @@ namespace BruteForceSolverDefinition
         {
             // find unoccupied space
             // if none: return sudoku
+            _sudoku = sudoku;
             _logServant.PrintMessage("Step in between: ");
             _logServant.PrintSudoku(sudoku);
 

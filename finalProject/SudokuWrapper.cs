@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using SudokuDefinition;
 using BruteForceSolverDefinition;
 using System.IO;
-using Servants;
 using ComplexSolverDefinition;
 using System.Windows.Forms;
-
+using Servants;
 
 namespace finalProject
 {
+    /// <summary>
+    /// Wrapper class that allows the GUI to interact with the sudoku and solver logic
+    /// </summary>
     public class SudokuWrapper : INotifyPropertyChanged
     {
         #region internal variables
@@ -25,6 +23,7 @@ namespace finalProject
         private string _logpath = "";
         private string _savepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CS50xLogSettings.set");
         private string _timeMeasurement = "";
+        private DebugServant _servant;
         public RelayCommand LoadExampleSudokuCommand { get; set; }
         public RelayCommand SolveBruteForceCommand { get; set; }
         public RelayCommand SolveComplexCommand { get; set; }
@@ -40,7 +39,7 @@ namespace finalProject
         public string Logpath
         {
             get { return _logpath; }
-            set { _logpath = value; OnPropertyChanged(); SaveLogpath(); }
+            set { _logpath = value; OnPropertyChanged(); }
         }
 
         private void SetValue(ref int v, int value)
@@ -82,6 +81,9 @@ namespace finalProject
             SaveSudokuCommand = new RelayCommand(o => SaveSudoku());
             LoadSudokuCommand = new RelayCommand(o => LoadSudoku());
             CheckSudokuCommand = new RelayCommand(o => CheckWIPSudoku());
+
+            _servant = new DebugServant(Logpath);
+            _servant.PrintMessage("Initialization of program finished. ");
         }
 
         #endregion
@@ -94,49 +96,62 @@ namespace finalProject
         /// </summary>
         private void CheckWIPSudoku()
         {
-            // Check current sudoku
-            // i.e. solve with fastest method
-            // and compare values
-            bool solvable = false;
-            Sudoku mappedSudoku = new Sudoku(_mappedSudoku);
-            if(!mappedSudoku.IsValidSudoku())
+            _servant.PrintMessage("Checking WIP sudoku...");
+
+            try
             {
-                MessageBox.Show("The current sudoku is not valid. Please check!");
-                return;
-            }
-            Sudoku wipSudoku = mappedSudoku.Copy();
-            BruteForceSolver solver = new BruteForceSolver(Logpath);
-            solvable = solver.SolveSudoku(mappedSudoku.Copy());
-            if(!solvable)
-            {
-                MessageBox.Show("It seems you made a mistake.");
-                return;
-            }
-            Sudoku finishedSudoku = solver._sudoku;
-            int elemWIP;
-            bool correct = true;
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
+                // Check current sudoku
+                // i.e. solve with fastest method
+                // and compare values
+                bool solvable;
+                Sudoku mappedSudoku = new Sudoku(_mappedSudoku);
+                if (!mappedSudoku.IsValidSudoku())
                 {
-                    elemWIP = wipSudoku.GetElement(i, j);
-                    if (elemWIP != 0)
+                    MessageBox.Show("The current sudoku is not valid. Please check!");
+                    _servant.PrintErrorMessage("The current sudoku is not valid!");
+                    return;
+                }
+                Sudoku wipSudoku = mappedSudoku.Copy();
+                BruteForceSolver solver = new BruteForceSolver(_servant);
+                solvable = solver.SolveSudoku(mappedSudoku.Copy());
+                if (!solvable)
+                {
+                    MessageBox.Show("It seems you made a mistake.");
+                    _servant.PrintMessage("The current sudoku is not solvable. It seems you made a mistake.");
+                    return;
+                }
+                Sudoku finishedSudoku = solver._sudoku;
+                int elemWIP;
+                bool correct = true;
+                for (int i = 0; i < 9; i++)
+                {
+                    for (int j = 0; j < 9; j++)
                     {
-                        if (elemWIP != finishedSudoku.GetElement(i, j))
+                        elemWIP = wipSudoku.GetElement(i, j);
+                        if (elemWIP != 0)
                         {
-                            correct = false;
-                            break;
+                            if (elemWIP != finishedSudoku.GetElement(i, j))
+                            {
+                                correct = false;
+                                break;
+                            }
                         }
                     }
                 }
+                if (correct)
+                {
+                    MessageBox.Show("So far, so good!");
+                    _servant.PrintMessage("The sudoku is correct so far.");
+                }
+                else
+                {
+                    MessageBox.Show("It seems you made a mistake.");
+                    _servant.PrintMessage("There is a difference between your solution and the solution of this program. It seems you made a mistake.");
+                }
             }
-            if (correct)
+            catch (Exception ex)
             {
-                MessageBox.Show("So far, so good!");
-            }
-            else
-            {
-                MessageBox.Show("It seems you made a mistake.");
+                _servant.PrintErrorMessage("Unable to check WIP sudoku. Error: " + ex.Message);
             }
         }
 
@@ -145,23 +160,33 @@ namespace finalProject
         /// </summary>
         private void SolveBruteForce()
         {
-            DateTime start = DateTime.Now;
+            _servant.PrintMessage("Starting brute force solver... ");
 
-            Sudoku mappedSudoku = new Sudoku(_mappedSudoku);
-
-            if (!mappedSudoku.IsValidSudoku())
+            try
             {
-                MessageBox.Show("The current sudoku is not valid. Please check!");
-                return;
+                DateTime start = DateTime.Now;
+
+                Sudoku mappedSudoku = new Sudoku(_mappedSudoku);
+
+                if (!mappedSudoku.IsValidSudoku())
+                {
+                    MessageBox.Show("The current sudoku is not valid. Please check!");
+                    _servant.PrintErrorMessage("The current sudoku is not valid!");
+                    return;
+                }
+
+                BruteForceSolver solver = new BruteForceSolver(Logpath);
+                solver.SolveSudoku(mappedSudoku.Copy());
+                SudokuToArray(solver._sudoku);
+
+                DateTime end = DateTime.Now;
+                TimeSpan timeDiff = end - start;
+                TimeMeasurement = "Time taken to solve with brute force solver: " + Convert.ToInt32(timeDiff.TotalSeconds).ToString() + " seconds.";
             }
-
-            BruteForceSolver solver = new BruteForceSolver(Logpath);
-            solver.SolveSudoku(mappedSudoku.Copy());
-            SudokuToArray(solver._sudoku);
-
-            DateTime end = DateTime.Now;
-            TimeSpan timeDiff = end - start;
-            TimeMeasurement = "Time taken to solve with brute force solver: " + Convert.ToInt32(timeDiff.TotalSeconds).ToString() + " seconds.";
+            catch (Exception ex)
+            {
+                _servant.PrintErrorMessage("Unable to solve with brute force solver. Error: " + ex.Message);
+            }
         }
 
         /// <summary>
@@ -169,23 +194,33 @@ namespace finalProject
         /// </summary>
         private void SolveComplex()
         {
-            DateTime start = DateTime.Now;
-
-            Sudoku mappedSudoku = new Sudoku(_mappedSudoku);
-
-            if (!mappedSudoku.IsValidSudoku())
+            _servant.PrintMessage("Starting complex solver... ");
+            try
             {
-                MessageBox.Show("The current sudoku is not valid. Please check!");
-                return;
+                DateTime start = DateTime.Now;
+
+                Sudoku mappedSudoku = new Sudoku(_mappedSudoku);
+
+                if (!mappedSudoku.IsValidSudoku())
+                {
+                    MessageBox.Show("The current sudoku is not valid. Please check!");
+                    _servant.PrintErrorMessage("The current sudoku is not valid!");
+                    return;
+                }
+
+                ComplexSolver solver = new ComplexSolver(Logpath);
+                solver.SolveSudoku(mappedSudoku.Copy());
+                SudokuToArray(solver._sudoku);
+
+                DateTime end = DateTime.Now;
+                TimeSpan timeDiff = end - start;
+                TimeMeasurement = "Time taken to solve with complex solver: " + Convert.ToInt32(timeDiff.TotalSeconds).ToString() + " seconds.";
+            }
+            catch (Exception ex)
+            {
+                _servant.PrintErrorMessage("Unable to solve with complex solver! Error: " + ex.Message);
             }
 
-            ComplexSolver solver = new ComplexSolver(Logpath);
-            solver.SolveSudoku(mappedSudoku.Copy());
-            SudokuToArray(solver._sudoku);
-
-            DateTime end = DateTime.Now;
-            TimeSpan timeDiff = end - start;
-            TimeMeasurement = "Time taken to solve with complex solver: " + Convert.ToInt32(timeDiff.TotalSeconds).ToString() + " seconds.";
         }
 
         /// <summary>
@@ -193,11 +228,19 @@ namespace finalProject
         /// </summary>
         private void LoadExampleSudoku()
         {
-            int[,] easyTest2 = new int[,] {  { 0, 2, 7, 0, 0, 0, 9, 1, 3 }, { 9, 0, 0, 3, 4, 0, 6, 0, 7 }, { 0, 0, 0, 0, 0, 0, 0, 0, 4 },
+            _servant.PrintMessage("Loading example sudoku... ");
+            try
+            {
+                int[,] easyTest2 = new int[,] {  { 0, 2, 7, 0, 0, 0, 9, 1, 3 }, { 9, 0, 0, 3, 4, 0, 6, 0, 7 }, { 0, 0, 0, 0, 0, 0, 0, 0, 4 },
                                              { 0, 3, 2, 0, 8, 0, 4, 0, 0 }, { 5, 0, 8, 7, 3, 4, 0, 0, 0 }, { 7, 0, 4, 2, 0, 0, 5, 0, 8 },
                                              { 0, 0, 1, 9, 2, 6, 3, 4, 0 }, { 2, 5, 0, 0, 0, 0, 0, 9, 0 }, { 0, 0, 9, 0, 5, 1, 0, 2, 0 }};
-            Sudoku test = new Sudoku(easyTest2);
-            SudokuToArray(test);
+                Sudoku test = new Sudoku(easyTest2);
+                SudokuToArray(test);
+            }
+            catch (Exception ex)
+            {
+                _servant.PrintErrorMessage("Unable to load example sudoku. Error: " + ex.Message);
+            }
         }
 
         /// <summary>
@@ -206,6 +249,7 @@ namespace finalProject
         /// <param name="sudoku"></param>
         public void SudokuToArray(Sudoku sudoku)
         {
+            _servant.PrintMessage("Displaying new sudoku... ");
             // rows
             for (int i = 0; i < 9; i++)
             {
@@ -226,20 +270,28 @@ namespace finalProject
         /// </summary>
         public void SaveSudoku()
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "sudoku files (*.sudoku)|*.sudoku";
-            saveFileDialog.FilterIndex = 2;
-            saveFileDialog.RestoreDirectory = true;
-            saveFileDialog.Title = "Save the currrent sudoku";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            _servant.PrintMessage("Saving sudoku to file... ");
+            try
             {
-                // Save the file
-                string fileName = saveFileDialog.FileName;
-                using (StreamWriter sw = new StreamWriter(fileName, false))
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "sudoku files (*.sudoku)|*.sudoku";
+                saveFileDialog.FilterIndex = 2;
+                saveFileDialog.RestoreDirectory = true;
+                saveFileDialog.Title = "Save the currrent sudoku";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    sw.WriteLine(String.Join("", _mappedSudoku.Cast<int>()));
+                    // Save the file
+                    string fileName = saveFileDialog.FileName;
+                    using (StreamWriter sw = new StreamWriter(fileName, false))
+                    {
+                        sw.WriteLine(String.Join("", _mappedSudoku.Cast<int>()));
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                _servant.PrintErrorMessage("Unable to save sudoku to file. Error: " + ex.Message);
             }
         }
 
@@ -249,20 +301,28 @@ namespace finalProject
         /// </summary>
         public void LoadSudoku()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "sudoku files (*.sudoku)|*.sudoku";
-            openFileDialog.Title = "Load a sudoku";
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
-
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            _servant.PrintMessage("Loading sudoku from file... ");
+            try
             {
-                // Open the file and read a line
-                string fileName = openFileDialog.FileName;
-                string line = System.IO.File.ReadLines(fileName).First();
-                DisplaySudoku(line);
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "sudoku files (*.sudoku)|*.sudoku";
+                openFileDialog.Title = "Load a sudoku";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Open the file and read a line
+                    string fileName = openFileDialog.FileName;
+                    string line = System.IO.File.ReadLines(fileName).First();
+                    DisplaySudoku(line);
+                }
             }
+            catch (Exception ex)
+            {
+                _servant.PrintErrorMessage("Unable to load sudoku from file. Error: " + ex.Message);
+            }
+
 
         }
 
@@ -288,6 +348,7 @@ namespace finalProject
             }
             else
             {
+                _servant.PrintErrorMessage("There must be exactly 81 numbers in the Sudoku file!");
                 throw new ArgumentOutOfRangeException("There must be exactly 81 numbers in the Sudoku file!");
             }
         }
@@ -316,9 +377,12 @@ namespace finalProject
                 {
                     Logpath = sr.ReadLine();
                 }
+                SaveLogpath();
             }
-            catch { }
-
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -326,11 +390,17 @@ namespace finalProject
         /// </summary>
         private void SaveLogpath()
         {
-
-            // save in appdata
-            using (StreamWriter sw = new StreamWriter(_savepath, false))
+            try
             {
-                sw.WriteLine(Logpath);
+                // save in appdata
+                using (StreamWriter sw = new StreamWriter(_savepath, false))
+                {
+                    sw.WriteLine(Logpath);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
