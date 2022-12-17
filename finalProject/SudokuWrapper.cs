@@ -11,6 +11,8 @@ using BruteForceSolverDefinition;
 using System.IO;
 using Servants;
 using ComplexSolverDefinition;
+using System.Windows.Forms;
+
 
 namespace finalProject
 {
@@ -26,6 +28,8 @@ namespace finalProject
         public RelayCommand LoadExampleSudokuCommand { get; set; }
         public RelayCommand SolveBruteForceCommand { get; set; }
         public RelayCommand SolveComplexCommand { get; set; }
+        public RelayCommand SaveSudokuCommand { get; set; }
+        public RelayCommand LoadSudokuCommand { get; set; }
 
         public int this[int i, int j]
         {
@@ -74,6 +78,8 @@ namespace finalProject
             LoadExampleSudokuCommand = new RelayCommand(o => LoadExampleSudoku());
             SolveBruteForceCommand = new RelayCommand(o => SolveBruteForce());
             SolveComplexCommand = new RelayCommand(o => SolveComplex());
+            SaveSudokuCommand = new RelayCommand(o => SaveSudoku());
+            LoadSudokuCommand = new RelayCommand(o => LoadSudoku());
         }
 
         #endregion
@@ -142,6 +148,78 @@ namespace finalProject
                 }
             }
             this.OnPropertyChanged();
+        }
+
+        /// <summary>
+        /// Save the sudoku that is currently displayed to a file
+        /// https://learn.microsoft.com/de-de/dotnet/api/system.windows.forms.savefiledialog?view=windowsdesktop-7.0&viewFallbackFrom=net-5.0
+        /// </summary>
+        public void SaveSudoku()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "sudoku files (*.sudoku)|*.sudoku";
+            saveFileDialog.FilterIndex = 2;
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.Title = "Save the currrent sudoku";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Save the file
+                string fileName = saveFileDialog.FileName;
+                using (StreamWriter sw = new StreamWriter(fileName, false))
+                {
+                    sw.WriteLine(String.Join("", _mappedSudoku.Cast<int>()));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Load a sudoku into the GUI
+        /// https://learn.microsoft.com/de-de/dotnet/api/system.windows.forms.openfiledialog?view=windowsdesktop-7.0&viewFallbackFrom=net-5.0
+        /// </summary>
+        public void LoadSudoku()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "sudoku files (*.sudoku)|*.sudoku";
+            openFileDialog.Title = "Load a sudoku";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Open the file and read a line
+                string fileName = openFileDialog.FileName;
+                string line = System.IO.File.ReadLines(fileName).First();
+                DisplaySudoku(line);
+            }
+
+        }
+
+        /// <summary>
+        /// Fills a sudoku object from a string of numbers and displays it
+        /// </summary>
+        /// <param name="line">The string with 81 numbers of the sudoku</param>
+        private void DisplaySudoku(string line)
+        {
+            if(line.Length == 81)
+            {
+                int number;
+                Sudoku tmp = new Sudoku(new int[9, 9]);
+                int row, col;
+                for (int i = 0; i < line.Length; i++)
+                {
+                    number = Int32.Parse(line.Substring(i, 1)); // Start index, length
+                    row = Convert.ToInt32(Math.Floor((double)(i / 9)));
+                    col = i - row * 9;
+                    tmp.SetElement(row, col, number);
+                }
+                SudokuToArray(tmp);
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("There must be exactly 81 numbers in the Sudoku file!");
+            }
         }
 
         /// <summary>
