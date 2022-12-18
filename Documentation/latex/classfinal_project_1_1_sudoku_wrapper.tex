@@ -1,0 +1,478 @@
+\hypertarget{classfinal_project_1_1_sudoku_wrapper}{}\doxysection{final\+Project.\+Sudoku\+Wrapper Class Reference}
+\label{classfinal_project_1_1_sudoku_wrapper}\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+
+
+Wrapper class that allows the GUI to interact with the sudoku and solver logic   
+
+
+Inheritance diagram for final\+Project.\+Sudoku\+Wrapper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classfinal_project_1_1_sudoku_wrapper}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_adf63811361f523b23f79b7d7f7c824cb}{Sudoku\+Wrapper}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the sudoku wrapper (model). It loads the logpath and provides commands for actions in the GUI  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_ae7627023ee76ef661d4d68949b54afee}{Sudoku\+To\+Array}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\begin{DoxyCompactList}\small\item\em Helper function to display the sudoku in the GUI grid.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_aba7ff65b3f009f2ddcf01da1dc4817c0}{Save\+Sudoku}} ()
+\begin{DoxyCompactList}\small\item\em Save the sudoku that is currently displayed to a file \href{https://learn.microsoft.com/de-de/dotnet/api/system.windows.forms.savefiledialog?view=windowsdesktop-7.0&viewFallbackFrom=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+windows.\+forms.\+savefiledialog?view=windowsdesktop-\/7.\+0\&view\+Fallback\+From=net-\/5.\+0}}  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a5cd0e66538e6b597ec9d8175396b7b19}{Load\+Sudoku}} ()
+\begin{DoxyCompactList}\small\item\em Load a sudoku into the GUI \href{https://learn.microsoft.com/de-de/dotnet/api/system.windows.forms.openfiledialog?view=windowsdesktop-7.0&viewFallbackFrom=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+windows.\+forms.\+openfiledialog?view=windowsdesktop-\/7.\+0\&view\+Fallback\+From=net-\/5.\+0}}  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a6a93c587d564e53fd3ff17fbd9450a40}{Load\+Example\+Sudoku\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_ac35ae4b8968888556e513176aac6a57b}{Solve\+Brute\+Force\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a873f1b4dff08d9bdcf239f8c15549c16}{Solve\+Complex\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_adb539a48e00e1b9e56f70e45262211e3}{Save\+Sudoku\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a3005e8954729fdaeef41864ef8f3b303}{Load\+Sudoku\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_aead4602362a36252029829385a85b631}{Check\+Sudoku\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+int \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_adf206c0fb17ebdbcb6689b54fdaf8103}{this\mbox{[}int i, int j\mbox{]}}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_aa57b859edd54271f2af8bfdd025dafca}{Logpath}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a4c5a65240ed2f9b79d563968f57488cc}{Time\+Measurement}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+int \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a3a98a94c7ec25342738778a697434e48}{Number}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Property\+Changed\+Event\+Handler? \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a3f2bc59bb70a89fecf2bd1d3466e934d}{Property\+Changed}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_af52441e7036f6a93479b89a32bab8d11}{Set\+Value}} (ref int v, int value)
+\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_af05b045ed0b829a5e29690be9597ffb5}{Check\+WIPSudoku}} ()
+\begin{DoxyCompactList}\small\item\em Checks the currently displayed sudoku to see if it is filled correctly It lets a solver solve the sudoku and compares  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a1cafffb2cfe6865bc8eba9877401e35b}{Solve\+Brute\+Force}} ()
+\begin{DoxyCompactList}\small\item\em This function starts the brute force sudoku solver and measures and displays the time it took to solve.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_adbc0707e62a9aaf273652ad1b905d3b4}{Solve\+Complex}} ()
+\begin{DoxyCompactList}\small\item\em This function starts the more complex sudoku solver and measures and displays the time it took to solve.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_ab0d3c8b68633eca6c0ee3025734c6f4d}{Load\+Example\+Sudoku}} ()
+\begin{DoxyCompactList}\small\item\em This function loads an example sudoku into the GUI.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a70ee271952fa482f7b0e029f99dd0f85}{Display\+Sudoku}} (string line)
+\begin{DoxyCompactList}\small\item\em Fills a sudoku object from a string of numbers and displays it  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_af108557cb53f3fb0cf556027f1980ab1}{On\+Property\+Changed}} (string property\+Name=null)
+\begin{DoxyCompactList}\small\item\em This function calls the event handler in case a property (variable value) changed to update the GUI  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a156b62f79fd60679ba5d85a13171e481}{Load\+Logpath}} ()
+\begin{DoxyCompactList}\small\item\em This function reads the logpath out of the file in appdata\%  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a06d7cc4ceaf337b5c3818760fcdfd848}{Save\+Logpath}} ()
+\begin{DoxyCompactList}\small\item\em This function saves the current logpath in a file in appdata\%  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int\mbox{[},\mbox{]} \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a3098c8caa493316352026acdd071c864}{\+\_\+mapped\+Sudoku}}
+\item 
+string \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a9a289a348920c94637c14203b04dbda5}{\+\_\+logpath}} = \char`\"{}\char`\"{}
+\item 
+string \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a2c7a540713739dddf7ef6c4fc6f9f84e}{\+\_\+savepath}} = Path.\+Combine(Environment.\+Get\+Folder\+Path(Environment.\+Special\+Folder.\+Application\+Data), \char`\"{}CS50x\+Log\+Settings.\+set\char`\"{})
+\item 
+string \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a4ba5acdd6bea74f68145f3ae77d3a8db}{\+\_\+time\+Measurement}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{class_servants_1_1_debug_servant}{Debug\+Servant}} \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a07b239d0612ddbc9a51d898ce819bedf}{\+\_\+servant}}
+\item 
+int \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper_a4f9db4ec783b60805c9e6b0936ca0ee1}{number}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class that allows the GUI to interact with the sudoku and solver logic  
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_adf63811361f523b23f79b7d7f7c824cb}\label{classfinal_project_1_1_sudoku_wrapper_adf63811361f523b23f79b7d7f7c824cb}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!SudokuWrapper@{SudokuWrapper}}
+\index{SudokuWrapper@{SudokuWrapper}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{SudokuWrapper()}{SudokuWrapper()}}
+{\footnotesize\ttfamily final\+Project.\+Sudoku\+Wrapper.\+Sudoku\+Wrapper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for the sudoku wrapper (model). It loads the logpath and provides commands for actions in the GUI  
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00071}{71}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_af05b045ed0b829a5e29690be9597ffb5}\label{classfinal_project_1_1_sudoku_wrapper_af05b045ed0b829a5e29690be9597ffb5}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!CheckWIPSudoku@{CheckWIPSudoku}}
+\index{CheckWIPSudoku@{CheckWIPSudoku}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{CheckWIPSudoku()}{CheckWIPSudoku()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Check\+WIPSudoku (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks the currently displayed sudoku to see if it is filled correctly It lets a solver solve the sudoku and compares  
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00097}{97}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a70ee271952fa482f7b0e029f99dd0f85}\label{classfinal_project_1_1_sudoku_wrapper_a70ee271952fa482f7b0e029f99dd0f85}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!DisplaySudoku@{DisplaySudoku}}
+\index{DisplaySudoku@{DisplaySudoku}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{DisplaySudoku()}{DisplaySudoku()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Display\+Sudoku (\begin{DoxyParamCaption}\item[{string}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Fills a sudoku object from a string of numbers and displays it  
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The string with 81 numbers of the sudoku\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00333}{333}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_ab0d3c8b68633eca6c0ee3025734c6f4d}\label{classfinal_project_1_1_sudoku_wrapper_ab0d3c8b68633eca6c0ee3025734c6f4d}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!LoadExampleSudoku@{LoadExampleSudoku}}
+\index{LoadExampleSudoku@{LoadExampleSudoku}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{LoadExampleSudoku()}{LoadExampleSudoku()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Load\+Example\+Sudoku (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This function loads an example sudoku into the GUI.  
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00229}{229}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a156b62f79fd60679ba5d85a13171e481}\label{classfinal_project_1_1_sudoku_wrapper_a156b62f79fd60679ba5d85a13171e481}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!LoadLogpath@{LoadLogpath}}
+\index{LoadLogpath@{LoadLogpath}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{LoadLogpath()}{LoadLogpath()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Load\+Logpath (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This function reads the logpath out of the file in appdata\%  
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00372}{372}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a5cd0e66538e6b597ec9d8175396b7b19}\label{classfinal_project_1_1_sudoku_wrapper_a5cd0e66538e6b597ec9d8175396b7b19}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!LoadSudoku@{LoadSudoku}}
+\index{LoadSudoku@{LoadSudoku}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{LoadSudoku()}{LoadSudoku()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Load\+Sudoku (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Load a sudoku into the GUI \href{https://learn.microsoft.com/de-de/dotnet/api/system.windows.forms.openfiledialog?view=windowsdesktop-7.0&viewFallbackFrom=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+windows.\+forms.\+openfiledialog?view=windowsdesktop-\/7.\+0\&view\+Fallback\+From=net-\/5.\+0}}  
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00302}{302}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_af108557cb53f3fb0cf556027f1980ab1}\label{classfinal_project_1_1_sudoku_wrapper_af108557cb53f3fb0cf556027f1980ab1}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!OnPropertyChanged@{OnPropertyChanged}}
+\index{OnPropertyChanged@{OnPropertyChanged}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{OnPropertyChanged()}{OnPropertyChanged()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+On\+Property\+Changed (\begin{DoxyParamCaption}\item[{string}]{property\+Name = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This function calls the event handler in case a property (variable value) changed to update the GUI  
+
+
+\begin{DoxyParams}{Parameters}
+{\em property\+Name} & Name of the property that was changed\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00360}{360}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a06d7cc4ceaf337b5c3818760fcdfd848}\label{classfinal_project_1_1_sudoku_wrapper_a06d7cc4ceaf337b5c3818760fcdfd848}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!SaveLogpath@{SaveLogpath}}
+\index{SaveLogpath@{SaveLogpath}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{SaveLogpath()}{SaveLogpath()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Save\+Logpath (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This function saves the current logpath in a file in appdata\%  
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00391}{391}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_aba7ff65b3f009f2ddcf01da1dc4817c0}\label{classfinal_project_1_1_sudoku_wrapper_aba7ff65b3f009f2ddcf01da1dc4817c0}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!SaveSudoku@{SaveSudoku}}
+\index{SaveSudoku@{SaveSudoku}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{SaveSudoku()}{SaveSudoku()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Save\+Sudoku (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Save the sudoku that is currently displayed to a file \href{https://learn.microsoft.com/de-de/dotnet/api/system.windows.forms.savefiledialog?view=windowsdesktop-7.0&viewFallbackFrom=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+windows.\+forms.\+savefiledialog?view=windowsdesktop-\/7.\+0\&view\+Fallback\+From=net-\/5.\+0}}  
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00271}{271}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_af52441e7036f6a93479b89a32bab8d11}\label{classfinal_project_1_1_sudoku_wrapper_af52441e7036f6a93479b89a32bab8d11}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Set\+Value (\begin{DoxyParamCaption}\item[{ref int}]{v,  }\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00045}{45}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a1cafffb2cfe6865bc8eba9877401e35b}\label{classfinal_project_1_1_sudoku_wrapper_a1cafffb2cfe6865bc8eba9877401e35b}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!SolveBruteForce@{SolveBruteForce}}
+\index{SolveBruteForce@{SolveBruteForce}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{SolveBruteForce()}{SolveBruteForce()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Solve\+Brute\+Force (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This function starts the brute force sudoku solver and measures and displays the time it took to solve.  
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00161}{161}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_adbc0707e62a9aaf273652ad1b905d3b4}\label{classfinal_project_1_1_sudoku_wrapper_adbc0707e62a9aaf273652ad1b905d3b4}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!SolveComplex@{SolveComplex}}
+\index{SolveComplex@{SolveComplex}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{SolveComplex()}{SolveComplex()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Solve\+Complex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This function starts the more complex sudoku solver and measures and displays the time it took to solve.  
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00195}{195}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_ae7627023ee76ef661d4d68949b54afee}\label{classfinal_project_1_1_sudoku_wrapper_ae7627023ee76ef661d4d68949b54afee}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!SudokuToArray@{SudokuToArray}}
+\index{SudokuToArray@{SudokuToArray}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{SudokuToArray()}{SudokuToArray()}}
+{\footnotesize\ttfamily void final\+Project.\+Sudoku\+Wrapper.\+Sudoku\+To\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})}
+
+
+
+Helper function to display the sudoku in the GUI grid.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00250}{250}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a9a289a348920c94637c14203b04dbda5}\label{classfinal_project_1_1_sudoku_wrapper_a9a289a348920c94637c14203b04dbda5}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!\_logpath@{\_logpath}}
+\index{\_logpath@{\_logpath}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{\_logpath}{\_logpath}}
+{\footnotesize\ttfamily string final\+Project.\+Sudoku\+Wrapper.\+\_\+logpath = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a3098c8caa493316352026acdd071c864}\label{classfinal_project_1_1_sudoku_wrapper_a3098c8caa493316352026acdd071c864}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!\_mappedSudoku@{\_mappedSudoku}}
+\index{\_mappedSudoku@{\_mappedSudoku}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{\_mappedSudoku}{\_mappedSudoku}}
+{\footnotesize\ttfamily int \mbox{[},\mbox{]} final\+Project.\+Sudoku\+Wrapper.\+\_\+mapped\+Sudoku\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a2c7a540713739dddf7ef6c4fc6f9f84e}\label{classfinal_project_1_1_sudoku_wrapper_a2c7a540713739dddf7ef6c4fc6f9f84e}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!\_savepath@{\_savepath}}
+\index{\_savepath@{\_savepath}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{\_savepath}{\_savepath}}
+{\footnotesize\ttfamily string final\+Project.\+Sudoku\+Wrapper.\+\_\+savepath = Path.\+Combine(Environment.\+Get\+Folder\+Path(Environment.\+Special\+Folder.\+Application\+Data), \char`\"{}CS50x\+Log\+Settings.\+set\char`\"{})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a07b239d0612ddbc9a51d898ce819bedf}\label{classfinal_project_1_1_sudoku_wrapper_a07b239d0612ddbc9a51d898ce819bedf}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!\_servant@{\_servant}}
+\index{\_servant@{\_servant}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{\_servant}{\_servant}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_servants_1_1_debug_servant}{Debug\+Servant}} final\+Project.\+Sudoku\+Wrapper.\+\_\+servant\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00026}{26}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a4ba5acdd6bea74f68145f3ae77d3a8db}\label{classfinal_project_1_1_sudoku_wrapper_a4ba5acdd6bea74f68145f3ae77d3a8db}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!\_timeMeasurement@{\_timeMeasurement}}
+\index{\_timeMeasurement@{\_timeMeasurement}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{\_timeMeasurement}{\_timeMeasurement}}
+{\footnotesize\ttfamily string final\+Project.\+Sudoku\+Wrapper.\+\_\+time\+Measurement = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a4f9db4ec783b60805c9e6b0936ca0ee1}\label{classfinal_project_1_1_sudoku_wrapper_a4f9db4ec783b60805c9e6b0936ca0ee1}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!number@{number}}
+\index{number@{number}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{number}{number}}
+{\footnotesize\ttfamily int final\+Project.\+Sudoku\+Wrapper.\+number = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00056}{56}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_aead4602362a36252029829385a85b631}\label{classfinal_project_1_1_sudoku_wrapper_aead4602362a36252029829385a85b631}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!CheckSudokuCommand@{CheckSudokuCommand}}
+\index{CheckSudokuCommand@{CheckSudokuCommand}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{CheckSudokuCommand}{CheckSudokuCommand}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} final\+Project.\+Sudoku\+Wrapper.\+Check\+Sudoku\+Command\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00032}{32}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a6a93c587d564e53fd3ff17fbd9450a40}\label{classfinal_project_1_1_sudoku_wrapper_a6a93c587d564e53fd3ff17fbd9450a40}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!LoadExampleSudokuCommand@{LoadExampleSudokuCommand}}
+\index{LoadExampleSudokuCommand@{LoadExampleSudokuCommand}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{LoadExampleSudokuCommand}{LoadExampleSudokuCommand}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} final\+Project.\+Sudoku\+Wrapper.\+Load\+Example\+Sudoku\+Command\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00027}{27}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a3005e8954729fdaeef41864ef8f3b303}\label{classfinal_project_1_1_sudoku_wrapper_a3005e8954729fdaeef41864ef8f3b303}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!LoadSudokuCommand@{LoadSudokuCommand}}
+\index{LoadSudokuCommand@{LoadSudokuCommand}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{LoadSudokuCommand}{LoadSudokuCommand}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} final\+Project.\+Sudoku\+Wrapper.\+Load\+Sudoku\+Command\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00031}{31}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_aa57b859edd54271f2af8bfdd025dafca}\label{classfinal_project_1_1_sudoku_wrapper_aa57b859edd54271f2af8bfdd025dafca}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!Logpath@{Logpath}}
+\index{Logpath@{Logpath}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{Logpath}{Logpath}}
+{\footnotesize\ttfamily string final\+Project.\+Sudoku\+Wrapper.\+Logpath\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00039}{39}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a3a98a94c7ec25342738778a697434e48}\label{classfinal_project_1_1_sudoku_wrapper_a3a98a94c7ec25342738778a697434e48}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!Number@{Number}}
+\index{Number@{Number}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{Number}{Number}}
+{\footnotesize\ttfamily int final\+Project.\+Sudoku\+Wrapper.\+Number\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00057}{57}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_adb539a48e00e1b9e56f70e45262211e3}\label{classfinal_project_1_1_sudoku_wrapper_adb539a48e00e1b9e56f70e45262211e3}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!SaveSudokuCommand@{SaveSudokuCommand}}
+\index{SaveSudokuCommand@{SaveSudokuCommand}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{SaveSudokuCommand}{SaveSudokuCommand}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} final\+Project.\+Sudoku\+Wrapper.\+Save\+Sudoku\+Command\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00030}{30}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_ac35ae4b8968888556e513176aac6a57b}\label{classfinal_project_1_1_sudoku_wrapper_ac35ae4b8968888556e513176aac6a57b}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!SolveBruteForceCommand@{SolveBruteForceCommand}}
+\index{SolveBruteForceCommand@{SolveBruteForceCommand}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{SolveBruteForceCommand}{SolveBruteForceCommand}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} final\+Project.\+Sudoku\+Wrapper.\+Solve\+Brute\+Force\+Command\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00028}{28}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a873f1b4dff08d9bdcf239f8c15549c16}\label{classfinal_project_1_1_sudoku_wrapper_a873f1b4dff08d9bdcf239f8c15549c16}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!SolveComplexCommand@{SolveComplexCommand}}
+\index{SolveComplexCommand@{SolveComplexCommand}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{SolveComplexCommand}{SolveComplexCommand}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfinal_project_1_1_relay_command}{Relay\+Command}} final\+Project.\+Sudoku\+Wrapper.\+Solve\+Complex\+Command\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_adf206c0fb17ebdbcb6689b54fdaf8103}\label{classfinal_project_1_1_sudoku_wrapper_adf206c0fb17ebdbcb6689b54fdaf8103}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!this\mbox{[}int i, int j\mbox{]}@{this[int i, int j]}}
+\index{this\mbox{[}int i, int j\mbox{]}@{this[int i, int j]}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{this[int i, int j]}{this[int i, int j]}}
+{\footnotesize\ttfamily int final\+Project.\+Sudoku\+Wrapper.\+this\mbox{[}int i, int j\mbox{]}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00034}{34}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a4c5a65240ed2f9b79d563968f57488cc}\label{classfinal_project_1_1_sudoku_wrapper_a4c5a65240ed2f9b79d563968f57488cc}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!TimeMeasurement@{TimeMeasurement}}
+\index{TimeMeasurement@{TimeMeasurement}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{TimeMeasurement}{TimeMeasurement}}
+{\footnotesize\ttfamily string final\+Project.\+Sudoku\+Wrapper.\+Time\+Measurement\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00050}{50}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+
+
+\doxysubsection{Event Documentation}
+\mbox{\Hypertarget{classfinal_project_1_1_sudoku_wrapper_a3f2bc59bb70a89fecf2bd1d3466e934d}\label{classfinal_project_1_1_sudoku_wrapper_a3f2bc59bb70a89fecf2bd1d3466e934d}} 
+\index{finalProject.SudokuWrapper@{finalProject.SudokuWrapper}!PropertyChanged@{PropertyChanged}}
+\index{PropertyChanged@{PropertyChanged}!finalProject.SudokuWrapper@{finalProject.SudokuWrapper}}
+\doxysubsubsection{\texorpdfstring{PropertyChanged}{PropertyChanged}}
+{\footnotesize\ttfamily Property\+Changed\+Event\+Handler? final\+Project.\+Sudoku\+Wrapper.\+Property\+Changed}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_wrapper_8cs_source_l00021}{21}} of file \mbox{\hyperlink{_sudoku_wrapper_8cs_source}{Sudoku\+Wrapper.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+final\+Project/\mbox{\hyperlink{_sudoku_wrapper_8cs}{Sudoku\+Wrapper.\+cs}}\end{DoxyCompactItemize}

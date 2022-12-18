@@ -1,0 +1,140 @@
+\hypertarget{_sudoku_8cs_source}{}\doxysection{Sudoku.\+cs}
+\label{_sudoku_8cs_source}\index{Sudoku/Sudoku.cs@{Sudoku/Sudoku.cs}}
+\mbox{\hyperlink{_sudoku_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00002}00002 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00004}\mbox{\hyperlink{namespace_sudoku_definition}{00004}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_sudoku_definition}{SudokuDefinition}}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00005}00005 \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00009}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{00009}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00010}00010     \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00011}00011         \textcolor{comment}{// class variables}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00012}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}{00012}}         \textcolor{keywordtype}{int}[,] \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}{\_sudoku}};}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00014}00014         \textcolor{comment}{// Constructor}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00015}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a9506483e02dcad30c67222e7ea69d29c}{00015}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a9506483e02dcad30c67222e7ea69d29c}{Sudoku}}()}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00016}00016         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00018}00018         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00020}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_adec222aad13171ad130d763ee255efe1}{00020}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_adec222aad13171ad130d763ee255efe1}{Sudoku}}(\textcolor{keywordtype}{int}[,] sudoku)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00021}00021         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00022}00022             \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a28be9e83f9e2e72f478287a88e81394e}{InitializeSudoku}}(sudoku);}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00023}00023         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00025}00025 \textcolor{preprocessor}{        \#region Utility Functions}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00033}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_ab4710308ca87d44c766030c2288724df}{00033}}         \textcolor{keyword}{public} \textcolor{keywordtype}{int}[] \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_ab4710308ca87d44c766030c2288724df}{GetRow}}(\textcolor{keywordtype}{int} idx)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00034}00034         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00035}00035             \textcolor{keywordtype}{int}[] row = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[9];}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00036}00036             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 9; i++)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00037}00037             \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00038}00038                 row[i] = \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}{\_sudoku}}[idx, i];}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00039}00039             \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00041}00041             \textcolor{keywordflow}{return} row;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00042}00042         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00049}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_aadab033a7996e3a5f09dfc3e680f23ce}{00049}}         \textcolor{keyword}{public} \textcolor{keywordtype}{int}[] \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_aadab033a7996e3a5f09dfc3e680f23ce}{GetColumn}}(\textcolor{keywordtype}{int} idx)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00050}00050         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00051}00051             \textcolor{keywordtype}{int}[] column = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[9];}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00052}00052             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 9; i++)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00053}00053             \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00054}00054                 column[i] = \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}{\_sudoku}}[i, idx];}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00055}00055             \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00057}00057             \textcolor{keywordflow}{return} column;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00058}00058         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00069}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a5a74db0187162be305b16b8c8f0e13c1}{00069}}         \textcolor{keyword}{public} \textcolor{keywordtype}{int}[] \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a5a74db0187162be305b16b8c8f0e13c1}{GetSquare}}(\textcolor{keywordtype}{int} idx)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00070}00070         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00071}00071             \textcolor{keywordtype}{int}[] square = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[9];}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00072}00072             \textcolor{keywordtype}{int} startI = (idx \% 3) * 3;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00073}00073             \textcolor{keywordtype}{double} fraction = idx / 3;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00074}00074             \textcolor{keywordtype}{int} startJ = Convert.ToInt32(Math.Floor(fraction)) * 3;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00075}00075             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 3; i++)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00076}00076             \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00077}00077                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 3; j++)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00078}00078                 \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00079}00079                     square[j * 3 + i] = \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}{\_sudoku}}[startJ + j, startI + i];}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00080}00080                 \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00081}00081             \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00083}00083             \textcolor{keywordflow}{return} square;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00084}00084         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00090}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a3692ea2b6e9e4569c4004ad7227a2f4f}{00090}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a3692ea2b6e9e4569c4004ad7227a2f4f}{Copy}}()}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00091}00091         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00092}00092             \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} copy = \textcolor{keyword}{new} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a9506483e02dcad30c67222e7ea69d29c}{Sudoku}}(\textcolor{keyword}{new} \textcolor{keywordtype}{int}[9, 9]);}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00093}00093             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 9; i++)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00094}00094             \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00095}00095                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 9; j++)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00096}00096                 \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00097}00097                     copy.\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a05866ddead2cc23c05a5ee9c7944b13b}{SetElement}}(i, j, \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a2ef41fcdcfa4797249887e4f98a63082}{GetElement}}(i, j));}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00098}00098                 \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00099}00099             \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00101}00101             \textcolor{keywordflow}{return} copy;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00102}00102         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00109}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_aa4eb41275e4b3c4f3bb89a5ce337eb8f}{00109}}         \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_aa4eb41275e4b3c4f3bb89a5ce337eb8f}{IsValidSudoku}}()}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00110}00110         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00111}00111             \textcolor{keywordtype}{bool} isValid = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00113}00113             \textcolor{keywordtype}{int}[] distinctElem;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00114}00114             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 9; i++)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00115}00115             \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00116}00116                 distinctElem = \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_ab4710308ca87d44c766030c2288724df}{GetRow}}(i);}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00117}00117                 distinctElem = distinctElem.Where(x => x != 0).ToArray();}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00118}00118                 \textcolor{comment}{// https://stackoverflow.com/questions/19757992/how-\/do-\/i-\/check-\/if-\/my-\/array-\/has-\/repeated-\/values-\/inside-\/it}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00119}00119                 \textcolor{keywordflow}{if} (distinctElem.Length != distinctElem.Distinct().Count())}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00120}00120                 \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00121}00121                     isValid = \textcolor{keyword}{false}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00122}00122                 \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00123}00123                 distinctElem = \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_aadab033a7996e3a5f09dfc3e680f23ce}{GetColumn}}(i);}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00124}00124                 distinctElem = distinctElem.Where(x => x != 0).ToArray();}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00125}00125                 \textcolor{keywordflow}{if} (distinctElem.Length != distinctElem.Distinct().Count())}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00126}00126                 \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00127}00127                     isValid = \textcolor{keyword}{false}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00128}00128                 \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00129}00129                 distinctElem = \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a5a74db0187162be305b16b8c8f0e13c1}{GetSquare}}(i);}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00130}00130                 distinctElem = distinctElem.Where(x => x != 0).ToArray();}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00131}00131                 \textcolor{keywordflow}{if} (distinctElem.Length != distinctElem.Distinct().Count())}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00132}00132                 \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00133}00133                     isValid = \textcolor{keyword}{false}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00134}00134                 \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00135}00135             \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00136}00136             \textcolor{keywordflow}{return} isValid;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00137}00137         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00145}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_ab823ea203d6bedb210dba8b28dfe6ae1}{00145}}         \textcolor{keyword}{public} \textcolor{keywordtype}{int}[] \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_ab823ea203d6bedb210dba8b28dfe6ae1}{GetIndexInSquare}}(\textcolor{keywordtype}{int} square, \textcolor{keywordtype}{int} element)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00146}00146         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00147}00147             \textcolor{keywordtype}{int}[] idx = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[2];}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00148}00148             \textcolor{keywordtype}{int} row = Convert.ToInt32(Math.Floor((\textcolor{keywordtype}{double})(square / 3))) * 3 + Convert.ToInt32(Math.Floor((\textcolor{keywordtype}{double})(element / 3)));}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00149}00149             \textcolor{keywordtype}{int} column = (square \% 3) * 3 + (element \% 3);}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00150}00150             idx[0] = row;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00151}00151             idx[1] = column;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00152}00152             \textcolor{keywordflow}{return} idx;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00153}00153         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00161}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a2ef41fcdcfa4797249887e4f98a63082}{00161}}         \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a2ef41fcdcfa4797249887e4f98a63082}{GetElement}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00162}00162         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00163}00163             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}{\_sudoku}}[row, col];}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00164}00164         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00172}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a05866ddead2cc23c05a5ee9c7944b13b}{00172}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a05866ddead2cc23c05a5ee9c7944b13b}{SetElement}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keywordtype}{int} value)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00173}00173         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00174}00174             \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}{\_sudoku}}[row, col] = value;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00175}00175         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00176}00176 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00181}\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a28be9e83f9e2e72f478287a88e81394e}{00181}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a28be9e83f9e2e72f478287a88e81394e}{InitializeSudoku}}(\textcolor{keywordtype}{int}[,] startSudoku)}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00182}00182         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00183}00183             \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}{\_sudoku}} = startSudoku;}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00184}00184         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00185}00185 }
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00186}00186 \textcolor{preprocessor}{        \#endregion}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00187}00187     \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_8cs_source_l00188}00188 \}}
+
+\end{DoxyCode}

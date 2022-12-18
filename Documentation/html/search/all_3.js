@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['bruteforcesolver_0',['BruteForceSolver',['../class_brute_force_solver_definition_1_1_brute_force_solver.html#a3ad0ef5844ec46a36133ceb0e9f0f66b',1,'BruteForceSolverDefinition.BruteForceSolver.BruteForceSolver()'],['../class_brute_force_solver_definition_1_1_brute_force_solver.html#a173d865faf7788146278f7e1d8da8e3d',1,'BruteForceSolverDefinition.BruteForceSolver.BruteForceSolver(Sudoku sudoku)'],['../class_brute_force_solver_definition_1_1_brute_force_solver.html#a1a94b85ed42895f091fe82b76063b8e6',1,'BruteForceSolverDefinition.BruteForceSolver.BruteForceSolver(Sudoku sudoku, string logpath)'],['../class_brute_force_solver_definition_1_1_brute_force_solver.html#aa774fc839174cb4e78a59661e8369c59',1,'BruteForceSolverDefinition.BruteForceSolver.BruteForceSolver(string logpath)'],['../class_brute_force_solver_definition_1_1_brute_force_solver.html#a58e7a56b8771e1f7b5f603c0fbd09c40',1,'BruteForceSolverDefinition.BruteForceSolver.BruteForceSolver(DebugServant servant)'],['../class_brute_force_solver_definition_1_1_brute_force_solver.html',1,'BruteForceSolverDefinition.BruteForceSolver']]],
+  ['bruteforcesolver_2eassemblyinfo_2ecs_1',['BruteForceSolver.AssemblyInfo.cs',['../_brute_force_solver_8_assembly_info_8cs.html',1,'']]],
+  ['bruteforcesolver_2ecs_2',['BruteForceSolver.cs',['../_brute_force_solver_8cs.html',1,'']]],
+  ['bruteforcesolverdefinition_3',['BruteForceSolverDefinition',['../namespace_brute_force_solver_definition.html',1,'']]]
+];

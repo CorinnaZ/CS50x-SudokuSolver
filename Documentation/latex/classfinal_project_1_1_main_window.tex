@@ -1,0 +1,287 @@
+\hypertarget{classfinal_project_1_1_main_window}{}\doxysection{final\+Project.\+Main\+Window Class Reference}
+\label{classfinal_project_1_1_main_window}\index{finalProject.MainWindow@{finalProject.MainWindow}}
+
+
+Interaction logic for Main\+Window.\+xaml GUI help (except comments) taken from \href{https://stackoverflow.com/questions/54055388/sudoku-in-wpf-what-base-element-should-i-use-for-the-table}{\texttt{ https\+://stackoverflow.\+com/questions/54055388/sudoku-\/in-\/wpf-\/what-\/base-\/element-\/should-\/i-\/use-\/for-\/the-\/table}}   
+
+
+Inheritance diagram for final\+Project.\+Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.772414cm]{classfinal_project_1_1_main_window}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfinal_project_1_1_main_window_af3631e58a3730a86033015b216364f1c}{Main\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the main window. Initializes the components, view model and the actual table  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_main_window_aec6f00e04ce73aa1eee5ffdfb60d782e}{Initialize\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_main_window_aec6f00e04ce73aa1eee5ffdfb60d782e}{Initialize\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper}{Sudoku\+Wrapper}} \mbox{\hyperlink{classfinal_project_1_1_main_window_a4927b0da6a82a8cd5c846f289fcb8d73}{View\+Model}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classfinal_project_1_1_main_window_a3e5acd88367e2de0397db411b7f464e9}{Initialize\+View\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Sets the data context for the xaml file to my function \char`\"{}\+Sudoku\+Wrapper\char`\"{}  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal_project_1_1_main_window_a22369073be6e61d623b13ea3b57934e1}{Initialize\+Sudoku\+Table}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the table with its borders and cells  \end{DoxyCompactList}\item 
+Text\+Box \mbox{\hyperlink{classfinal_project_1_1_main_window_a69be40312f5359008594321f3a34a9fc}{Create\+Text\+Box}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Creates a text box and initializes the binding  \end{DoxyCompactList}\item 
+void System.\+Windows.\+Markup.\+IComponent\+Connector. \mbox{\hyperlink{classfinal_project_1_1_main_window_a3997b1954d91ba7b9a6a0e1990c8d72b}{Connect}} (int connection\+Id, object target)
+\item 
+void System.\+Windows.\+Markup.\+IComponent\+Connector. \mbox{\hyperlink{classfinal_project_1_1_main_window_a3997b1954d91ba7b9a6a0e1990c8d72b}{Connect}} (int connection\+Id, object target)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Border \mbox{\hyperlink{classfinal_project_1_1_main_window_ada69f37c3594e85c237a68bd52603b79}{Create\+Border}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Creates borders for the table  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classfinal_project_1_1_main_window_ae3d4fa359d79685f3d08d9cafc5ef3dd}{\+\_\+content\+Loaded}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{classfinal_project_1_1_main_window_ad3dd7ccaeaf39456155e3090748f1693}{Inner\+Width}} = 3
+\item 
+const int \mbox{\hyperlink{classfinal_project_1_1_main_window_a9200c96b260821d888c696bbb4dd2479}{Outer\+Width}} = 9
+\item 
+const int \mbox{\hyperlink{classfinal_project_1_1_main_window_a09f58e9c06fa441d180848d2f276fc32}{Thin}} = 1
+\item 
+const int \mbox{\hyperlink{classfinal_project_1_1_main_window_a29a38009db40c166abd89b544380f047}{Thick}} = 3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interaction logic for Main\+Window.\+xaml GUI help (except comments) taken from \href{https://stackoverflow.com/questions/54055388/sudoku-in-wpf-what-base-element-should-i-use-for-the-table}{\texttt{ https\+://stackoverflow.\+com/questions/54055388/sudoku-\/in-\/wpf-\/what-\/base-\/element-\/should-\/i-\/use-\/for-\/the-\/table}}  
+
+\mbox{\hyperlink{classfinal_project_1_1_main_window}{Main\+Window}}  
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_af3631e58a3730a86033015b216364f1c}\label{classfinal_project_1_1_main_window_af3631e58a3730a86033015b216364f1c}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily final\+Project.\+Main\+Window.\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for the main window. Initializes the components, view model and the actual table  
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00034}{34}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_a3997b1954d91ba7b9a6a0e1990c8d72b}\label{classfinal_project_1_1_main_window_a3997b1954d91ba7b9a6a0e1990c8d72b}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!Connect@{Connect}}
+\index{Connect@{Connect}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{Connect()}{Connect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void System.\+Windows.\+Markup.\+IComponent\+Connector. final\+Project.\+Main\+Window.\+Connect (\begin{DoxyParamCaption}\item[{int}]{connection\+Id,  }\item[{object}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8g_8cs_source_l00080}{80}} of file \mbox{\hyperlink{_main_window_8g_8cs_source}{Main\+Window.\+g.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_a3997b1954d91ba7b9a6a0e1990c8d72b}\label{classfinal_project_1_1_main_window_a3997b1954d91ba7b9a6a0e1990c8d72b}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!Connect@{Connect}}
+\index{Connect@{Connect}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{Connect()}{Connect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void System.\+Windows.\+Markup.\+IComponent\+Connector. final\+Project.\+Main\+Window.\+Connect (\begin{DoxyParamCaption}\item[{int}]{connection\+Id,  }\item[{object}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8g_8i_8cs_source_l00080}{80}} of file \mbox{\hyperlink{_main_window_8g_8i_8cs_source}{Main\+Window.\+g.\+i.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_ada69f37c3594e85c237a68bd52603b79}\label{classfinal_project_1_1_main_window_ada69f37c3594e85c237a68bd52603b79}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!CreateBorder@{CreateBorder}}
+\index{CreateBorder@{CreateBorder}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{CreateBorder()}{CreateBorder()}}
+{\footnotesize\ttfamily static Border final\+Project.\+Main\+Window.\+Create\+Border (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Creates borders for the table  
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Row\\
+\hline
+{\em j} & Column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Border object
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00081}{81}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_a69be40312f5359008594321f3a34a9fc}\label{classfinal_project_1_1_main_window_a69be40312f5359008594321f3a34a9fc}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!CreateTextBox@{CreateTextBox}}
+\index{CreateTextBox@{CreateTextBox}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{CreateTextBox()}{CreateTextBox()}}
+{\footnotesize\ttfamily Text\+Box final\+Project.\+Main\+Window.\+Create\+Text\+Box (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a text box and initializes the binding  
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Row\\
+\hline
+{\em j} & Column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A text box element
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00101}{101}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_aec6f00e04ce73aa1eee5ffdfb60d782e}\label{classfinal_project_1_1_main_window_aec6f00e04ce73aa1eee5ffdfb60d782e}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!InitializeComponent@{InitializeComponent}}
+\index{InitializeComponent@{InitializeComponent}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{InitializeComponent()}{InitializeComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void final\+Project.\+Main\+Window.\+Initialize\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize\+Component  
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8g_8cs_source_l00060}{60}} of file \mbox{\hyperlink{_main_window_8g_8cs_source}{Main\+Window.\+g.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_aec6f00e04ce73aa1eee5ffdfb60d782e}\label{classfinal_project_1_1_main_window_aec6f00e04ce73aa1eee5ffdfb60d782e}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!InitializeComponent@{InitializeComponent}}
+\index{InitializeComponent@{InitializeComponent}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{InitializeComponent()}{InitializeComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void final\+Project.\+Main\+Window.\+Initialize\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize\+Component  
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8g_8i_8cs_source_l00060}{60}} of file \mbox{\hyperlink{_main_window_8g_8i_8cs_source}{Main\+Window.\+g.\+i.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_a22369073be6e61d623b13ea3b57934e1}\label{classfinal_project_1_1_main_window_a22369073be6e61d623b13ea3b57934e1}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!InitializeSudokuTable@{InitializeSudokuTable}}
+\index{InitializeSudokuTable@{InitializeSudokuTable}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{InitializeSudokuTable()}{InitializeSudokuTable()}}
+{\footnotesize\ttfamily void final\+Project.\+Main\+Window.\+Initialize\+Sudoku\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes the table with its borders and cells  
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00054}{54}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_a3e5acd88367e2de0397db411b7f464e9}\label{classfinal_project_1_1_main_window_a3e5acd88367e2de0397db411b7f464e9}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!InitializeViewModel@{InitializeViewModel}}
+\index{InitializeViewModel@{InitializeViewModel}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{InitializeViewModel()}{InitializeViewModel()}}
+{\footnotesize\ttfamily void final\+Project.\+Main\+Window.\+Initialize\+View\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets the data context for the xaml file to my function \char`\"{}\+Sudoku\+Wrapper\char`\"{}  
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00046}{46}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_ae3d4fa359d79685f3d08d9cafc5ef3dd}\label{classfinal_project_1_1_main_window_ae3d4fa359d79685f3d08d9cafc5ef3dd}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!\_contentLoaded@{\_contentLoaded}}
+\index{\_contentLoaded@{\_contentLoaded}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{\_contentLoaded}{\_contentLoaded}}
+{\footnotesize\ttfamily bool final\+Project.\+Main\+Window.\+\_\+content\+Loaded\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8g_8cs_source_l00053}{53}} of file \mbox{\hyperlink{_main_window_8g_8cs_source}{Main\+Window.\+g.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_ad3dd7ccaeaf39456155e3090748f1693}\label{classfinal_project_1_1_main_window_ad3dd7ccaeaf39456155e3090748f1693}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!InnerWidth@{InnerWidth}}
+\index{InnerWidth@{InnerWidth}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{InnerWidth}{InnerWidth}}
+{\footnotesize\ttfamily const int final\+Project.\+Main\+Window.\+Inner\+Width = 3\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_a9200c96b260821d888c696bbb4dd2479}\label{classfinal_project_1_1_main_window_a9200c96b260821d888c696bbb4dd2479}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!OuterWidth@{OuterWidth}}
+\index{OuterWidth@{OuterWidth}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{OuterWidth}{OuterWidth}}
+{\footnotesize\ttfamily const int final\+Project.\+Main\+Window.\+Outer\+Width = 9\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00026}{26}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_a29a38009db40c166abd89b544380f047}\label{classfinal_project_1_1_main_window_a29a38009db40c166abd89b544380f047}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!Thick@{Thick}}
+\index{Thick@{Thick}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{Thick}{Thick}}
+{\footnotesize\ttfamily const int final\+Project.\+Main\+Window.\+Thick = 3\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_a09f58e9c06fa441d180848d2f276fc32}\label{classfinal_project_1_1_main_window_a09f58e9c06fa441d180848d2f276fc32}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!Thin@{Thin}}
+\index{Thin@{Thin}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{Thin}{Thin}}
+{\footnotesize\ttfamily const int final\+Project.\+Main\+Window.\+Thin = 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00028}{28}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classfinal_project_1_1_main_window_a4927b0da6a82a8cd5c846f289fcb8d73}\label{classfinal_project_1_1_main_window_a4927b0da6a82a8cd5c846f289fcb8d73}} 
+\index{finalProject.MainWindow@{finalProject.MainWindow}!ViewModel@{ViewModel}}
+\index{ViewModel@{ViewModel}!finalProject.MainWindow@{finalProject.MainWindow}}
+\doxysubsubsection{\texorpdfstring{ViewModel}{ViewModel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfinal_project_1_1_sudoku_wrapper}{Sudoku\+Wrapper}} final\+Project.\+Main\+Window.\+View\+Model\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00041}{41}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+final\+Project/\mbox{\hyperlink{_main_window_8xaml_8cs}{Main\+Window.\+xaml.\+cs}}\item 
+final\+Project/obj/\+Debug/net5.\+0-\/windows/\mbox{\hyperlink{_main_window_8g_8cs}{Main\+Window.\+g.\+cs}}\item 
+final\+Project/obj/\+Debug/net5.\+0-\/windows/\mbox{\hyperlink{_main_window_8g_8i_8cs}{Main\+Window.\+g.\+i.\+cs}}\end{DoxyCompactItemize}

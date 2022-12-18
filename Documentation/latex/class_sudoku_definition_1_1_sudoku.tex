@@ -1,0 +1,283 @@
+\hypertarget{class_sudoku_definition_1_1_sudoku}{}\doxysection{Sudoku\+Definition.\+Sudoku Class Reference}
+\label{class_sudoku_definition_1_1_sudoku}\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+
+
+Class for the actual \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} datatype   
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a9506483e02dcad30c67222e7ea69d29c}{Sudoku}} ()
+\item 
+\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_adec222aad13171ad130d763ee255efe1}{Sudoku}} (int\mbox{[},\mbox{]} sudoku)
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_ab4710308ca87d44c766030c2288724df}{Get\+Row}} (int idx)
+\begin{DoxyCompactList}\small\item\em Returns specific row of the \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}  \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_aadab033a7996e3a5f09dfc3e680f23ce}{Get\+Column}} (int idx)
+\begin{DoxyCompactList}\small\item\em Returns specific column of the \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}  \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a5a74db0187162be305b16b8c8f0e13c1}{Get\+Square}} (int idx)
+\begin{DoxyCompactList}\small\item\em Returns specific 3x3 square  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a3692ea2b6e9e4569c4004ad7227a2f4f}{Copy}} ()
+\begin{DoxyCompactList}\small\item\em Copies a sudoku as I need to have a copy without referencing the original sudoku  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_aa4eb41275e4b3c4f3bb89a5ce337eb8f}{Is\+Valid\+Sudoku}} ()
+\begin{DoxyCompactList}\small\item\em Checks if a sudoku is valid. This can also be done when the sudoku is not completely filled, as it ignores all empty cells and only looks if in each row, column and square, each number only occurs once.  \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_ab823ea203d6bedb210dba8b28dfe6ae1}{Get\+Index\+In\+Square}} (int square, int element)
+\begin{DoxyCompactList}\small\item\em Given an index of a square and an element number in the square, return the index of the element in sudoku coordinates  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a2ef41fcdcfa4797249887e4f98a63082}{Get\+Element}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Returns the element described by row and col  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a05866ddead2cc23c05a5ee9c7944b13b}{Set\+Element}} (int row, int col, int value)
+\begin{DoxyCompactList}\small\item\em Sets an element to a specific value  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_a28be9e83f9e2e72f478287a88e81394e}{Initialize\+Sudoku}} (int\mbox{[},\mbox{]} start\+Sudoku)
+\begin{DoxyCompactList}\small\item\em Initalizes the \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} with starting values  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int\mbox{[},\mbox{]} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}{\+\_\+sudoku}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the actual \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} datatype  
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00009}{9}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_a9506483e02dcad30c67222e7ea69d29c}\label{class_sudoku_definition_1_1_sudoku_a9506483e02dcad30c67222e7ea69d29c}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!Sudoku@{Sudoku}}
+\index{Sudoku@{Sudoku}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{Sudoku()}{Sudoku()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Sudoku\+Definition.\+Sudoku.\+Sudoku (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00015}{15}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_adec222aad13171ad130d763ee255efe1}\label{class_sudoku_definition_1_1_sudoku_adec222aad13171ad130d763ee255efe1}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!Sudoku@{Sudoku}}
+\index{Sudoku@{Sudoku}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{Sudoku()}{Sudoku()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Sudoku\+Definition.\+Sudoku.\+Sudoku (\begin{DoxyParamCaption}\item[{int}]{sudoku\mbox{[},\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_a3692ea2b6e9e4569c4004ad7227a2f4f}\label{class_sudoku_definition_1_1_sudoku_a3692ea2b6e9e4569c4004ad7227a2f4f}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!Copy@{Copy}}
+\index{Copy@{Copy}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} Sudoku\+Definition.\+Sudoku.\+Copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Copies a sudoku as I need to have a copy without referencing the original sudoku  
+
+\begin{DoxyReturn}{Returns}
+A copy of the sudoku it was called with
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00090}{90}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_aadab033a7996e3a5f09dfc3e680f23ce}\label{class_sudoku_definition_1_1_sudoku_aadab033a7996e3a5f09dfc3e680f23ce}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!GetColumn@{GetColumn}}
+\index{GetColumn@{GetColumn}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{GetColumn()}{GetColumn()}}
+{\footnotesize\ttfamily int\mbox{[}$\,$\mbox{]} Sudoku\+Definition.\+Sudoku.\+Get\+Column (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Returns specific column of the \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}  
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Index of the column to return (0...8)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The requested column as an int array
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00049}{49}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_a2ef41fcdcfa4797249887e4f98a63082}\label{class_sudoku_definition_1_1_sudoku_a2ef41fcdcfa4797249887e4f98a63082}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!GetElement@{GetElement}}
+\index{GetElement@{GetElement}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{GetElement()}{GetElement()}}
+{\footnotesize\ttfamily int Sudoku\+Definition.\+Sudoku.\+Get\+Element (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Returns the element described by row and col  
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Row in which the element lives\\
+\hline
+{\em col} & Column in which the element lives\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00161}{161}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_ab823ea203d6bedb210dba8b28dfe6ae1}\label{class_sudoku_definition_1_1_sudoku_ab823ea203d6bedb210dba8b28dfe6ae1}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!GetIndexInSquare@{GetIndexInSquare}}
+\index{GetIndexInSquare@{GetIndexInSquare}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{GetIndexInSquare()}{GetIndexInSquare()}}
+{\footnotesize\ttfamily int\mbox{[}$\,$\mbox{]} Sudoku\+Definition.\+Sudoku.\+Get\+Index\+In\+Square (\begin{DoxyParamCaption}\item[{int}]{square,  }\item[{int}]{element }\end{DoxyParamCaption})}
+
+
+
+Given an index of a square and an element number in the square, return the index of the element in sudoku coordinates  
+
+
+\begin{DoxyParams}{Parameters}
+{\em square} & Index of the square\\
+\hline
+{\em element} & Index of the element in the square (0...8)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Row and column coordinates within the sudoku
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00145}{145}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_ab4710308ca87d44c766030c2288724df}\label{class_sudoku_definition_1_1_sudoku_ab4710308ca87d44c766030c2288724df}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!GetRow@{GetRow}}
+\index{GetRow@{GetRow}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{GetRow()}{GetRow()}}
+{\footnotesize\ttfamily int\mbox{[}$\,$\mbox{]} Sudoku\+Definition.\+Sudoku.\+Get\+Row (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Returns specific row of the \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}  
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Index of the row to return (0...8)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The requested row as an int array
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Implemented\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_a5a74db0187162be305b16b8c8f0e13c1}\label{class_sudoku_definition_1_1_sudoku_a5a74db0187162be305b16b8c8f0e13c1}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!GetSquare@{GetSquare}}
+\index{GetSquare@{GetSquare}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{GetSquare()}{GetSquare()}}
+{\footnotesize\ttfamily int\mbox{[}$\,$\mbox{]} Sudoku\+Definition.\+Sudoku.\+Get\+Square (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Returns specific 3x3 square  
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Index of the square to return 0 1 2 3 4 5 6 7 8 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The requested square as an int array
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_a28be9e83f9e2e72f478287a88e81394e}\label{class_sudoku_definition_1_1_sudoku_a28be9e83f9e2e72f478287a88e81394e}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!InitializeSudoku@{InitializeSudoku}}
+\index{InitializeSudoku@{InitializeSudoku}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{InitializeSudoku()}{InitializeSudoku()}}
+{\footnotesize\ttfamily void Sudoku\+Definition.\+Sudoku.\+Initialize\+Sudoku (\begin{DoxyParamCaption}\item[{int}]{start\+Sudoku\mbox{[},\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Initalizes the \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} with starting values  
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Sudoku} & A pre-\/filled sudoku\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00181}{181}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_aa4eb41275e4b3c4f3bb89a5ce337eb8f}\label{class_sudoku_definition_1_1_sudoku_aa4eb41275e4b3c4f3bb89a5ce337eb8f}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!IsValidSudoku@{IsValidSudoku}}
+\index{IsValidSudoku@{IsValidSudoku}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{IsValidSudoku()}{IsValidSudoku()}}
+{\footnotesize\ttfamily bool Sudoku\+Definition.\+Sudoku.\+Is\+Valid\+Sudoku (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if a sudoku is valid. This can also be done when the sudoku is not completely filled, as it ignores all empty cells and only looks if in each row, column and square, each number only occurs once.  
+
+\begin{DoxyReturn}{Returns}
+True if valid, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00109}{109}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_a05866ddead2cc23c05a5ee9c7944b13b}\label{class_sudoku_definition_1_1_sudoku_a05866ddead2cc23c05a5ee9c7944b13b}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!SetElement@{SetElement}}
+\index{SetElement@{SetElement}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{SetElement()}{SetElement()}}
+{\footnotesize\ttfamily void Sudoku\+Definition.\+Sudoku.\+Set\+Element (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Sets an element to a specific value  
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Row in which to set the value\\
+\hline
+{\em col} & Column in which to set the value\\
+\hline
+{\em value} & Value to set\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00172}{172}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}\label{class_sudoku_definition_1_1_sudoku_af8fe80c15bffff15d3fcf3ca301d2cb9}} 
+\index{SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}!\_sudoku@{\_sudoku}}
+\index{\_sudoku@{\_sudoku}!SudokuDefinition.Sudoku@{SudokuDefinition.Sudoku}}
+\doxysubsubsection{\texorpdfstring{\_sudoku}{\_sudoku}}
+{\footnotesize\ttfamily int \mbox{[},\mbox{]} Sudoku\+Definition.\+Sudoku.\+\_\+sudoku\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sudoku_8cs_source_l00012}{12}} of file \mbox{\hyperlink{_sudoku_8cs_source}{Sudoku.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Sudoku/\mbox{\hyperlink{_sudoku_8cs}{Sudoku.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,32 @@
+\hypertarget{_sudoku_test_2_test_8cs_source}{}\doxysection{Test.\+cs}
+\label{_sudoku_test_2_test_8cs_source}\index{SudokuTest/Test.cs@{SudokuTest/Test.cs}}
+\mbox{\hyperlink{_sudoku_test_2_test_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00002}00002 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_servants}{Servants}};}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00003}00003 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_sudoku_definition}{SudokuDefinition}};}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00005}\mbox{\hyperlink{namespace_sudoku_test}{00005}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_sudoku_test}{SudokuTest}}}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00006}00006 \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00007}00007     \textcolor{keyword}{internal} \textcolor{keyword}{class }Test}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00008}00008     \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00009}00009         \textcolor{keyword}{static} \textcolor{keywordtype}{void} Main(\textcolor{keywordtype}{string}[] args)}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00010}00010         \{}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00011}00011             Console.WriteLine(\textcolor{stringliteral}{"{}Hello World!"{}});}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00012}00012             \textcolor{keywordtype}{int}[,] sudoku = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[,] \{ \{ 0, 0, 1, 0, 2, 1, 0, 1, 3 \}, \{ 0, 5, 1, 0, 2, 1, 0, 1, 3 \}, \{ 0, 0, 1, 9, 2, 1, 0, 1, 3 \},}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00013}00013                                          \{ 0, 0, 1, 0, 2, 1, 7, 1, 3 \}, \{ 0, 0, 1, 0, 2, 1, 0, 1, 3 \}, \{ 0, 0, 1, 0, 2, 1, 6, 1, 3 \},}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00014}00014                                          \{ 0, 2, 1, 0, 2, 1, 0, 1, 3 \}, \{ 0, 0, 1, 0, 5, 1, 0, 1, 3 \}, \{ 0, 1, 1, 0, 2, 1, 0, 1, 3 \}\};}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00015}00015             \textcolor{keywordtype}{int}[,] easyTest = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[,] \{ \{ 7, 0, 3, 1, 6, 8, 4, 2, 0 \}, \{ 6, 0, 2, 0, 0, 1, 0, 0, 1 \}, \{ 8, 0, 9, 3, 0, 4, 7, 5, 6 \},}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00016}00016                                              \{ 1, 7, 0, 4, 0, 2, 0, 0, 0 \}, \{ 0, 3, 0, 0, 9, 6, 0, 7, 0 \}, \{ 4, 0, 0, 0, 0, 0, 0, 0, 5 \},}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00017}00017                                              \{ 3, 0, 0, 0, 0, 0, 9, 4, 0 \}, \{ 0, 6, 0, 9, 0, 0, 0, 0, 0 \}, \{ 0, 0, 0, 0, 4, 1, 5, 0, 3 \}\};}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00018}00018             \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} test = \textcolor{keyword}{new} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}(sudoku);}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00019}00019             \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} easySudoku = \textcolor{keyword}{new} \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}(easyTest);}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00021}00021             \mbox{\hyperlink{class_servants_1_1_debug_servant}{DebugServant}} dbgServant = \textcolor{keyword}{new} \mbox{\hyperlink{class_servants_1_1_debug_servant}{DebugServant}}(\textcolor{stringliteral}{"{}D:\(\backslash\)\(\backslash\)Entwicklung\(\backslash\)\(\backslash\)CS50x\(\backslash\)\(\backslash\)finalProject\(\backslash\)\(\backslash\)DebugLog.log"{}});}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00022}00022             dbgServant.\mbox{\hyperlink{class_servants_1_1_debug_servant_ae5ebdaa599bdab10aadb5c3a94f7324d}{PrintMessage}}(\textcolor{stringliteral}{"{}TEST"{}});}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00023}00023             dbgServant.\mbox{\hyperlink{class_servants_1_1_debug_servant_a8fde448310738893f1c40cc6abb5e28f}{PrintSudoku}}(easySudoku);}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00024}00024         \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00025}00025     \}}
+\DoxyCodeLine{\Hypertarget{_sudoku_test_2_test_8cs_source_l00026}00026 \}}
+
+\end{DoxyCode}

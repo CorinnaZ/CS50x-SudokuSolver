@@ -1,0 +1,135 @@
+\hypertarget{_debug_servant_8cs_source}{}\doxysection{Debug\+Servant.\+cs}
+\label{_debug_servant_8cs_source}\index{Servants/DebugServant.cs@{Servants/DebugServant.cs}}
+\mbox{\hyperlink{_debug_servant_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00002}00002 \textcolor{keyword}{using }System.IO;}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00003}00003 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_sudoku_definition}{SudokuDefinition}};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00005}\mbox{\hyperlink{namespace_servants}{00005}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_servants}{Servants}}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00006}00006 \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00010}\mbox{\hyperlink{class_servants_1_1_debug_servant}{00010}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_servants_1_1_debug_servant}{DebugServant}}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00011}00011     \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00013}00013         \textcolor{comment}{// class variables}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00014}\mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{00014}}         \textcolor{keywordtype}{string} \mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{\_logpath}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00016}00016         \textcolor{comment}{// constructor}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00021}\mbox{\hyperlink{class_servants_1_1_debug_servant_ace63c917d5e50737587e769acd0e3d6e}{00021}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_servants_1_1_debug_servant_ace63c917d5e50737587e769acd0e3d6e}{DebugServant}}(\textcolor{keywordtype}{string} path)}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00022}00022         \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00023}00023             \mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{\_logpath}} = path;}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00024}00024             \mbox{\hyperlink{class_servants_1_1_debug_servant_a9ef2e54611ccf38b4d8395b63319ff15}{InitLog}}();}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00025}00025         \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00027}00027 \textcolor{preprocessor}{        \#region Utility functions}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00033}\mbox{\hyperlink{class_servants_1_1_debug_servant_a9ef2e54611ccf38b4d8395b63319ff15}{00033}}         \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_servants_1_1_debug_servant_a9ef2e54611ccf38b4d8395b63319ff15}{InitLog}}()}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00034}00034         \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00035}00035             \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00036}00036             \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00037}00037                 DateTime currentTime = DateTime.Now;}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00038}00038                 \textcolor{keywordtype}{string} dateTime = \textcolor{stringliteral}{"{}["{}} + currentTime.ToString(System.Globalization.CultureInfo.InvariantCulture) + \textcolor{stringliteral}{"{}]: "{}};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00040}00040                 \textcolor{keywordflow}{if} (File.Exists(\mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{\_logpath}}))}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00041}00041                 \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00042}00042                     File.Delete(\mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{\_logpath}});}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00043}00043                 \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00045}00045                 \textcolor{keywordflow}{if} (!File.Exists(\mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{\_logpath}}))}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00046}00046                 \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00047}00047                     \textcolor{keyword}{using} (StreamWriter sw = File.CreateText(\mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{\_logpath}}))}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00048}00048                     \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00049}00049                         sw.WriteLine(dateTime + \textcolor{stringliteral}{"{}Log created."{}});}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00050}00050                     \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00051}00051                 \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00052}00052                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00053}00053             \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00054}00054             \textcolor{keywordflow}{catch}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00055}00055             \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00056}00056                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00057}00057             \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00058}00058         \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00069}\mbox{\hyperlink{class_servants_1_1_debug_servant_ae5ebdaa599bdab10aadb5c3a94f7324d}{00069}}         \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_servants_1_1_debug_servant_ae5ebdaa599bdab10aadb5c3a94f7324d}{PrintMessage}}(\textcolor{keywordtype}{string} message)}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00070}00070         \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00071}00071             \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00072}00072             \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00073}00073                 DateTime currentTime = DateTime.Now;}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00074}00074                 \textcolor{keywordtype}{string} dateTime = \textcolor{stringliteral}{"{}["{}} + currentTime.ToString(System.Globalization.CultureInfo.InvariantCulture) + \textcolor{stringliteral}{"{}]: "{}};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00076}00076                 \textcolor{keyword}{using} (StreamWriter sw = File.AppendText(\mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{\_logpath}}))}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00077}00077                 \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00078}00078                     sw.WriteLine(dateTime + message);}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00079}00079                 \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00081}00081                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00082}00082             \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00083}00083             \textcolor{keywordflow}{catch}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00084}00084             \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00085}00085                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00086}00086             \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00087}00087         \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00097}\mbox{\hyperlink{class_servants_1_1_debug_servant_a169407808fb041d83863cbdcb4532499}{00097}}         \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_servants_1_1_debug_servant_a169407808fb041d83863cbdcb4532499}{PrintErrorMessage}}(\textcolor{keywordtype}{string} message)}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00098}00098         \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00099}00099             \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00100}00100             \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00101}00101                 DateTime currentTime = DateTime.Now;}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00102}00102                 \textcolor{keywordtype}{string} dateTime = \textcolor{stringliteral}{"{}["{}} + currentTime.ToString(System.Globalization.CultureInfo.InvariantCulture) + \textcolor{stringliteral}{"{}]: "{}};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00104}00104                 \textcolor{keyword}{using} (StreamWriter sw = File.AppendText(\mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{\_logpath}}))}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00105}00105                 \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00106}00106                     sw.WriteLine(\textcolor{stringliteral}{"{}[ERROR] "{}} + dateTime + message);}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00107}00107                 \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00109}00109                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00110}00110             \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00111}00111             \textcolor{keywordflow}{catch}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00112}00112             \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00113}00113                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00114}00114             \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00115}00115         \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00122}\mbox{\hyperlink{class_servants_1_1_debug_servant_a8fde448310738893f1c40cc6abb5e28f}{00122}}         \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_servants_1_1_debug_servant_a8fde448310738893f1c40cc6abb5e28f}{PrintSudoku}}(\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00123}00123         \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00124}00124             \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00125}00125             \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00126}00126                 DateTime currentTime = DateTime.Now;}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00127}00127                 \textcolor{keywordtype}{string} dateTime = \textcolor{stringliteral}{"{}["{}} + currentTime.ToString(System.Globalization.CultureInfo.InvariantCulture) + \textcolor{stringliteral}{"{}]: "{}};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00129}00129                 \textcolor{keyword}{using} (StreamWriter sw = File.AppendText(\mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{\_logpath}}))}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00130}00130                 \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00131}00131                     sw.WriteLine(dateTime + \textcolor{stringliteral}{"{}Sudoku: "{}});}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00132}00132                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 9; i++)}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00133}00133                     \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00134}00134                         \mbox{\hyperlink{class_servants_1_1_debug_servant_a7f3c00522e804b9c4061a0a6d5506701}{PrintSudokuLine}}(sw, sudoku, i);}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00135}00135                         \textcolor{comment}{//sw.WriteLine("{}[\{0\}]"{}, string.Join("{}, "{}, sudoku.GetRow(i)));}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00136}00136                     \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00137}00137                 \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00139}00139                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00140}00140             \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00141}00141             \textcolor{keywordflow}{catch}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00142}00142             \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00143}00143                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00144}00144             \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00145}00145         \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00153}\mbox{\hyperlink{class_servants_1_1_debug_servant_a7f3c00522e804b9c4061a0a6d5506701}{00153}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_servants_1_1_debug_servant_a7f3c00522e804b9c4061a0a6d5506701}{PrintSudokuLine}}(StreamWriter sw, \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, \textcolor{keywordtype}{int} i)}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00154}00154         \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00155}00155             \textcolor{keywordtype}{int}[] row = sudoku.\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku_ab4710308ca87d44c766030c2288724df}{GetRow}}(i);}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00156}00156             \textcolor{keywordtype}{string} write = String.Format(\textcolor{stringliteral}{"{}\{0\} \{1\} \{2\} | \{3\} \{4\} \{5\} | \{6\} \{7\} \{8\}\(\backslash\)n"{}}, row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8]);}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00157}00157             sw.Write(write);}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00158}00158             \textcolor{keywordflow}{if} (i == 2 || i == 5)}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00159}00159             \{}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00160}00160                 sw.WriteLine(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}});}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00161}00161             \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00162}00162         \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00163}00163 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00164}00164 \textcolor{preprocessor}{        \#endregion}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00166}00166     \}}
+\DoxyCodeLine{\Hypertarget{_debug_servant_8cs_source_l00167}00167 \}}
+
+\end{DoxyCode}

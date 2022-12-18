@@ -1,0 +1,315 @@
+\hypertarget{class_complex_solver_definition_1_1_complex_solver}{}\doxysection{Complex\+Solver\+Definition.\+Complex\+Solver Class Reference}
+\label{class_complex_solver_definition_1_1_complex_solver}\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+Inheritance diagram for Complex\+Solver\+Definition.\+Complex\+Solver\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_complex_solver_definition_1_1_complex_solver}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_a3e4417f4e11da8a441f51e299f36b10e}{Complex\+Solver}} ()
+\item 
+\mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_a118b4721463fe677e4ed2c8b5c4a506a}{Complex\+Solver}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\item 
+\mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_ae250252f8c4c287f99bbebd2988670c7}{Complex\+Solver}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, string logpath)
+\item 
+\mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_a6cfd42fd79000509334bc90997969a4f}{Complex\+Solver}} (string logpath)
+\item 
+\mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_ae50225cb75bb516033e011202dfca5cb}{Complex\+Solver}} (\mbox{\hyperlink{class_servants_1_1_debug_servant}{Debug\+Servant}} servant)
+\item 
+override bool \mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_a2f18c79a32a51b7f54c780ebe88cf80a}{Solve\+Sudoku}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\begin{DoxyCompactList}\small\item\em More sophisticated algorithm to solve a sudoku Basically, it constructs a 3D matrix \char`\"{}behind\char`\"{} the sudoku to remember all possible values and systematically reduces the matrix until only one value per cell remains. Time measuring code taken from\+: \href{https://dotnetcodr.com/2016/10/20/two-ways-to-measure-time-in-c-net/}{\texttt{ https\+://dotnetcodr.\+com/2016/10/20/two-\/ways-\/to-\/measure-\/time-\/in-\/c-\/net/}}  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_a5fff5aa8d8908e3c959827b2c539b922}{Check\+Possible\+Values\+For\+Singular\+Entry}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, List$<$ int $>$\mbox{[},\mbox{]} possible\+Values)
+\begin{DoxyCompactList}\small\item\em checks if there is only one value in possible\+Values for a single cell and sets it  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_a4da5e3604594cee3a7830eaf11cf0ada}{Delete\+Element\+From\+Possible\+Values}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, int row, int col, int new\+Value, List$<$ int $>$\mbox{[},\mbox{]} possible\+Values)
+\begin{DoxyCompactList}\small\item\em After one entry is set, delete the number from the possible values in the square, row and column  \end{DoxyCompactList}\item 
+List$<$ int $>$\mbox{[},\mbox{]} \mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_ae67ac7d3a8d056260f56554e2bbf6503}{Init\+Possible\+Values}} ()
+\begin{DoxyCompactList}\small\item\em creates the list to store all possible values in and initializes it  \end{DoxyCompactList}\item 
+List$<$ int $>$\mbox{[},\mbox{]} \mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_af3eb95733133c90f09e0b556ee6c4e7c}{Fill\+Possible\+Values}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, List$<$ int $>$\mbox{[},\mbox{]} possible\+Values)
+\begin{DoxyCompactList}\small\item\em Fills the list with all possible values for each cell  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_aae9f82b228de5d8401c10a2d0c9a5b5a}{Search\+And\+Fill\+All\+Single\+Entries}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\begin{DoxyCompactList}\small\item\em Search through all rows, columns and squares and fill all cells where only one number is missing  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_a62db3d93568e872ed3f40eb88a0d0db6}{Search\+And\+Fill\+In\+Square}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, int idx)
+\begin{DoxyCompactList}\small\item\em Searches for single empty cell in specific square  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_a1e003b9b5525b4bc3b08b148b5047669}{Search\+And\+Fill\+In\+Column}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, int idx)
+\begin{DoxyCompactList}\small\item\em Searches the column for a single empty cell and fills it  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_ae1c38ea564031d9385d3280fcc15a968}{Search\+And\+Fill\+In\+Row}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, int idx)
+\begin{DoxyCompactList}\small\item\em Searches the row for a single empty cell and fills it  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00010}{10}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_a3e4417f4e11da8a441f51e299f36b10e}\label{class_complex_solver_definition_1_1_complex_solver_a3e4417f4e11da8a441f51e299f36b10e}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!ComplexSolver@{ComplexSolver}}
+\index{ComplexSolver@{ComplexSolver}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{ComplexSolver()}{ComplexSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Complex\+Solver\+Definition.\+Complex\+Solver.\+Complex\+Solver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_a118b4721463fe677e4ed2c8b5c4a506a}\label{class_complex_solver_definition_1_1_complex_solver_a118b4721463fe677e4ed2c8b5c4a506a}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!ComplexSolver@{ComplexSolver}}
+\index{ComplexSolver@{ComplexSolver}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{ComplexSolver()}{ComplexSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Complex\+Solver\+Definition.\+Complex\+Solver.\+Complex\+Solver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00019}{19}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_ae250252f8c4c287f99bbebd2988670c7}\label{class_complex_solver_definition_1_1_complex_solver_ae250252f8c4c287f99bbebd2988670c7}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!ComplexSolver@{ComplexSolver}}
+\index{ComplexSolver@{ComplexSolver}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{ComplexSolver()}{ComplexSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Complex\+Solver\+Definition.\+Complex\+Solver.\+Complex\+Solver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{string}]{logpath }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_a6cfd42fd79000509334bc90997969a4f}\label{class_complex_solver_definition_1_1_complex_solver_a6cfd42fd79000509334bc90997969a4f}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!ComplexSolver@{ComplexSolver}}
+\index{ComplexSolver@{ComplexSolver}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{ComplexSolver()}{ComplexSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Complex\+Solver\+Definition.\+Complex\+Solver.\+Complex\+Solver (\begin{DoxyParamCaption}\item[{string}]{logpath }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_ae50225cb75bb516033e011202dfca5cb}\label{class_complex_solver_definition_1_1_complex_solver_ae50225cb75bb516033e011202dfca5cb}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!ComplexSolver@{ComplexSolver}}
+\index{ComplexSolver@{ComplexSolver}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{ComplexSolver()}{ComplexSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Complex\+Solver\+Definition.\+Complex\+Solver.\+Complex\+Solver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_servants_1_1_debug_servant}{Debug\+Servant}}}]{servant }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00034}{34}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_a5fff5aa8d8908e3c959827b2c539b922}\label{class_complex_solver_definition_1_1_complex_solver_a5fff5aa8d8908e3c959827b2c539b922}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!CheckPossibleValuesForSingularEntry@{CheckPossibleValuesForSingularEntry}}
+\index{CheckPossibleValuesForSingularEntry@{CheckPossibleValuesForSingularEntry}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{CheckPossibleValuesForSingularEntry()}{CheckPossibleValuesForSingularEntry()}}
+{\footnotesize\ttfamily bool Complex\+Solver\+Definition.\+Complex\+Solver.\+Check\+Possible\+Values\+For\+Singular\+Entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{List$<$ int $>$}]{possible\+Values\mbox{[},\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+checks if there is only one value in possible\+Values for a single cell and sets it  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to solve\\
+\hline
+{\em possible\+Values} & The list of possible values\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00089}{89}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_a4da5e3604594cee3a7830eaf11cf0ada}\label{class_complex_solver_definition_1_1_complex_solver_a4da5e3604594cee3a7830eaf11cf0ada}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!DeleteElementFromPossibleValues@{DeleteElementFromPossibleValues}}
+\index{DeleteElementFromPossibleValues@{DeleteElementFromPossibleValues}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{DeleteElementFromPossibleValues()}{DeleteElementFromPossibleValues()}}
+{\footnotesize\ttfamily void Complex\+Solver\+Definition.\+Complex\+Solver.\+Delete\+Element\+From\+Possible\+Values (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{int}]{row,  }\item[{int}]{col,  }\item[{int}]{new\+Value,  }\item[{List$<$ int $>$}]{possible\+Values\mbox{[},\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+After one entry is set, delete the number from the possible values in the square, row and column  
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The row where a number was just set\\
+\hline
+{\em j} & The column where a new number was just set\\
+\hline
+{\em new\+Value} & The new value that was just written\\
+\hline
+{\em possible\+Values} & The array of all possible values\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00120}{120}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_af3eb95733133c90f09e0b556ee6c4e7c}\label{class_complex_solver_definition_1_1_complex_solver_af3eb95733133c90f09e0b556ee6c4e7c}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!FillPossibleValues@{FillPossibleValues}}
+\index{FillPossibleValues@{FillPossibleValues}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{FillPossibleValues()}{FillPossibleValues()}}
+{\footnotesize\ttfamily List$<$ int $>$\mbox{[},\mbox{]} Complex\+Solver\+Definition.\+Complex\+Solver.\+Fill\+Possible\+Values (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{List$<$ int $>$}]{possible\+Values\mbox{[},\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Fills the list with all possible values for each cell  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to solve\\
+\hline
+{\em possible\+Values} & The list in which to store all possible values\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The filled list
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00183}{183}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_ae67ac7d3a8d056260f56554e2bbf6503}\label{class_complex_solver_definition_1_1_complex_solver_ae67ac7d3a8d056260f56554e2bbf6503}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!InitPossibleValues@{InitPossibleValues}}
+\index{InitPossibleValues@{InitPossibleValues}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{InitPossibleValues()}{InitPossibleValues()}}
+{\footnotesize\ttfamily List$<$ int $>$\mbox{[},\mbox{]} Complex\+Solver\+Definition.\+Complex\+Solver.\+Init\+Possible\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+creates the list to store all possible values in and initializes it  
+
+\begin{DoxyReturn}{Returns}
+the empty list
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00164}{164}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_aae9f82b228de5d8401c10a2d0c9a5b5a}\label{class_complex_solver_definition_1_1_complex_solver_aae9f82b228de5d8401c10a2d0c9a5b5a}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!SearchAndFillAllSingleEntries@{SearchAndFillAllSingleEntries}}
+\index{SearchAndFillAllSingleEntries@{SearchAndFillAllSingleEntries}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{SearchAndFillAllSingleEntries()}{SearchAndFillAllSingleEntries()}}
+{\footnotesize\ttfamily bool Complex\+Solver\+Definition.\+Complex\+Solver.\+Search\+And\+Fill\+All\+Single\+Entries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Search through all rows, columns and squares and fill all cells where only one number is missing  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to solve\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00218}{218}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_a1e003b9b5525b4bc3b08b148b5047669}\label{class_complex_solver_definition_1_1_complex_solver_a1e003b9b5525b4bc3b08b148b5047669}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!SearchAndFillInColumn@{SearchAndFillInColumn}}
+\index{SearchAndFillInColumn@{SearchAndFillInColumn}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{SearchAndFillInColumn()}{SearchAndFillInColumn()}}
+{\footnotesize\ttfamily bool Complex\+Solver\+Definition.\+Complex\+Solver.\+Search\+And\+Fill\+In\+Column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{int}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Searches the column for a single empty cell and fills it  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to search\\
+\hline
+{\em idx} & The index of the column to search\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if only one empty cell was found, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00299}{299}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_ae1c38ea564031d9385d3280fcc15a968}\label{class_complex_solver_definition_1_1_complex_solver_ae1c38ea564031d9385d3280fcc15a968}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!SearchAndFillInRow@{SearchAndFillInRow}}
+\index{SearchAndFillInRow@{SearchAndFillInRow}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{SearchAndFillInRow()}{SearchAndFillInRow()}}
+{\footnotesize\ttfamily bool Complex\+Solver\+Definition.\+Complex\+Solver.\+Search\+And\+Fill\+In\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{int}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Searches the row for a single empty cell and fills it  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to search\\
+\hline
+{\em idx} & The index of the row to search\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if only one empty cell was found, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00337}{337}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_a62db3d93568e872ed3f40eb88a0d0db6}\label{class_complex_solver_definition_1_1_complex_solver_a62db3d93568e872ed3f40eb88a0d0db6}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!SearchAndFillInSquare@{SearchAndFillInSquare}}
+\index{SearchAndFillInSquare@{SearchAndFillInSquare}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{SearchAndFillInSquare()}{SearchAndFillInSquare()}}
+{\footnotesize\ttfamily bool Complex\+Solver\+Definition.\+Complex\+Solver.\+Search\+And\+Fill\+In\+Square (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{int}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Searches for single empty cell in specific square  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to solve\\
+\hline
+{\em idx} & Index of the square to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if single cell found and filled, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00257}{257}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_complex_solver_definition_1_1_complex_solver_a2f18c79a32a51b7f54c780ebe88cf80a}\label{class_complex_solver_definition_1_1_complex_solver_a2f18c79a32a51b7f54c780ebe88cf80a}} 
+\index{ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}!SolveSudoku@{SolveSudoku}}
+\index{SolveSudoku@{SolveSudoku}!ComplexSolverDefinition.ComplexSolver@{ComplexSolverDefinition.ComplexSolver}}
+\doxysubsubsection{\texorpdfstring{SolveSudoku()}{SolveSudoku()}}
+{\footnotesize\ttfamily override bool Complex\+Solver\+Definition.\+Complex\+Solver.\+Solve\+Sudoku (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+More sophisticated algorithm to solve a sudoku Basically, it constructs a 3D matrix \char`\"{}behind\char`\"{} the sudoku to remember all possible values and systematically reduces the matrix until only one value per cell remains. Time measuring code taken from\+: \href{https://dotnetcodr.com/2016/10/20/two-ways-to-measure-time-in-c-net/}{\texttt{ https\+://dotnetcodr.\+com/2016/10/20/two-\/ways-\/to-\/measure-\/time-\/in-\/c-\/net/}}  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to solve\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if solved successfully, false otherwise
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a0d30424ec8a1d105c0508462ee4c7da4}{Sudoku\+Solver.\+Solver}}.
+
+
+
+Definition at line \mbox{\hyperlink{_complex_solver_8cs_source_l00049}{49}} of file \mbox{\hyperlink{_complex_solver_8cs_source}{Complex\+Solver.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Complex\+Solver/\mbox{\hyperlink{_complex_solver_8cs}{Complex\+Solver.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,439 @@
+\hypertarget{class_sudoku_solver_1_1_solver}{}\doxysection{Sudoku\+Solver.\+Solver Class Reference}
+\label{class_sudoku_solver_1_1_solver}\index{SudokuSolver.Solver@{SudokuSolver.Solver}}
+
+
+Class for the Sudoku \mbox{\hyperlink{class_sudoku_solver_1_1_solver}{Solver}}   
+
+
+Inheritance diagram for Sudoku\+Solver.\+Solver\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sudoku_solver_1_1_solver}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sudoku_solver_1_1_solver_a209fc76a91b0f8c4e4b523dc59fb992e}{Solver}} ()
+\item 
+\mbox{\hyperlink{class_sudoku_solver_1_1_solver_a52a12f84e84af37e895b515c0b72c652}{Solver}} (\mbox{\hyperlink{class_servants_1_1_debug_servant}{Debug\+Servant}} servant)
+\item 
+\mbox{\hyperlink{class_sudoku_solver_1_1_solver_aa509e6fd7cc589fca2fc6e8d0ddbc896}{Solver}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\item 
+\mbox{\hyperlink{class_sudoku_solver_1_1_solver_adc8c25a09a20958b2a67e40277652bb9}{Solver}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, string logpath)
+\item 
+\mbox{\hyperlink{class_sudoku_solver_1_1_solver_aefc3e9f251675298e4c2697a3b6cac00}{Solver}} (string logpath)
+\item 
+abstract bool \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a0d30424ec8a1d105c0508462ee4c7da4}{Solve\+Sudoku}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\begin{DoxyCompactList}\small\item\em Solves a sudoku. Zero in a sudoku stands for an empty cell  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a6b8ed7fa4df9cbbac9d4de7700baddbb}{Check\+Sudoku}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\begin{DoxyCompactList}\small\item\em Check if sudoku is finished  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a4085bf140953fb51a51e213fef61f979}{\+\_\+sudoku}}
+\item 
+string \mbox{\hyperlink{class_sudoku_solver_1_1_solver_ad9cede6fe11657c0932fdcc77e92fb4f}{\+\_\+logpath}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{class_servants_1_1_debug_servant}{Debug\+Servant}} \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a1346bad94bdcc0b2693417e64d500e3c}{\+\_\+log\+Servant}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a8933bd64a6fb20e24d3eed65e88ce811}{Is\+Valid}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, int\mbox{[}$\,$\mbox{]} pos, int num)
+\begin{DoxyCompactList}\small\item\em Checks if number would be a valid entry in the current space  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a6805383877c2cc83186053db0da79cc8}{Is\+Valid\+In\+Row}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, int\mbox{[}$\,$\mbox{]} pos, int num)
+\begin{DoxyCompactList}\small\item\em Checks if number is valid in current row  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a91cff9b0028f1e15e68e673cb354a82d}{Is\+Valid\+In\+Col}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, int\mbox{[}$\,$\mbox{]} pos, int num)
+\begin{DoxyCompactList}\small\item\em Checks if number is valid in current column  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sudoku_solver_1_1_solver_acd10589cbd6d1d6d01c5343a85197263}{Is\+Valid\+In\+Square}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, int\mbox{[}$\,$\mbox{]} pos, int num)
+\begin{DoxyCompactList}\small\item\em Checks if number is valid in current square  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_sudoku_solver_1_1_solver_ac497ae543a62fc1a6a071790006ed19d}{Get\+Square\+Index}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Returns the index of the square that the entry described by indices i and j belongs to  \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a3fcfd1ab94d0fde5061491410c83569b}{Find\+Unoccupied\+Space}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\begin{DoxyCompactList}\small\item\em Searches Sudoku for first unoccupied space searches row-\/wise  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a618b6a302a512cc61a856b04cf4c1183}{Check\+All\+Squares}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\begin{DoxyCompactList}\small\item\em Check if all squares are valid  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a4b5e89bd450aa8c9b3588965d967e380}{Check\+All\+Columns}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\begin{DoxyCompactList}\small\item\em Check if all columns are valid  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sudoku_solver_1_1_solver_a9a82abd23125015cee9e3d2cec3c3396}{Check\+All\+Rows}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\begin{DoxyCompactList}\small\item\em Check if all rows are valid  \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the Sudoku \mbox{\hyperlink{class_sudoku_solver_1_1_solver}{Solver}}  
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00011}{11}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a209fc76a91b0f8c4e4b523dc59fb992e}\label{class_sudoku_solver_1_1_solver_a209fc76a91b0f8c4e4b523dc59fb992e}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{Solver()}{Solver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Sudoku\+Solver.\+Solver.\+Solver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00019}{19}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a52a12f84e84af37e895b515c0b72c652}\label{class_sudoku_solver_1_1_solver_a52a12f84e84af37e895b515c0b72c652}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{Solver()}{Solver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Sudoku\+Solver.\+Solver.\+Solver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_servants_1_1_debug_servant}{Debug\+Servant}}}]{servant }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_aa509e6fd7cc589fca2fc6e8d0ddbc896}\label{class_sudoku_solver_1_1_solver_aa509e6fd7cc589fca2fc6e8d0ddbc896}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{Solver()}{Solver()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Sudoku\+Solver.\+Solver.\+Solver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_adc8c25a09a20958b2a67e40277652bb9}\label{class_sudoku_solver_1_1_solver_adc8c25a09a20958b2a67e40277652bb9}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{Solver()}{Solver()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Sudoku\+Solver.\+Solver.\+Solver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{string}]{logpath }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00035}{35}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_aefc3e9f251675298e4c2697a3b6cac00}\label{class_sudoku_solver_1_1_solver_aefc3e9f251675298e4c2697a3b6cac00}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{Solver()}{Solver()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Sudoku\+Solver.\+Solver.\+Solver (\begin{DoxyParamCaption}\item[{string}]{logpath }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00042}{42}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a4b5e89bd450aa8c9b3588965d967e380}\label{class_sudoku_solver_1_1_solver_a4b5e89bd450aa8c9b3588965d967e380}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!CheckAllColumns@{CheckAllColumns}}
+\index{CheckAllColumns@{CheckAllColumns}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{CheckAllColumns()}{CheckAllColumns()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver.\+Solver.\+Check\+All\+Columns (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if all columns are valid  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if all columns are valid, false otherwise
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Implemented\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00098}{98}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a9a82abd23125015cee9e3d2cec3c3396}\label{class_sudoku_solver_1_1_solver_a9a82abd23125015cee9e3d2cec3c3396}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!CheckAllRows@{CheckAllRows}}
+\index{CheckAllRows@{CheckAllRows}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{CheckAllRows()}{CheckAllRows()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver.\+Solver.\+Check\+All\+Rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if all rows are valid  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if all rows are valid, false otherwise
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Implemented\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00118}{118}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a618b6a302a512cc61a856b04cf4c1183}\label{class_sudoku_solver_1_1_solver_a618b6a302a512cc61a856b04cf4c1183}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!CheckAllSquares@{CheckAllSquares}}
+\index{CheckAllSquares@{CheckAllSquares}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{CheckAllSquares()}{CheckAllSquares()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver.\+Solver.\+Check\+All\+Squares (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if all squares are valid  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if all squares are valid, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00078}{78}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a6b8ed7fa4df9cbbac9d4de7700baddbb}\label{class_sudoku_solver_1_1_solver_a6b8ed7fa4df9cbbac9d4de7700baddbb}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!CheckSudoku@{CheckSudoku}}
+\index{CheckSudoku@{CheckSudoku}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{CheckSudoku()}{CheckSudoku()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver.\+Solver.\+Check\+Sudoku (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})}
+
+
+
+Check if sudoku is finished  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if finished, false otherwise
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Implemented\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00063}{63}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a3fcfd1ab94d0fde5061491410c83569b}\label{class_sudoku_solver_1_1_solver_a3fcfd1ab94d0fde5061491410c83569b}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!FindUnoccupiedSpace@{FindUnoccupiedSpace}}
+\index{FindUnoccupiedSpace@{FindUnoccupiedSpace}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{FindUnoccupiedSpace()}{FindUnoccupiedSpace()}}
+{\footnotesize\ttfamily int\mbox{[}$\,$\mbox{]} Sudoku\+Solver.\+Solver.\+Find\+Unoccupied\+Space (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Searches Sudoku for first unoccupied space searches row-\/wise  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku that should be searched\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Indices of first unoccupied space, \mbox{[}-\/1, -\/1\mbox{]} if none found
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00219}{219}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_ac497ae543a62fc1a6a071790006ed19d}\label{class_sudoku_solver_1_1_solver_ac497ae543a62fc1a6a071790006ed19d}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!GetSquareIndex@{GetSquareIndex}}
+\index{GetSquareIndex@{GetSquareIndex}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{GetSquareIndex()}{GetSquareIndex()}}
+{\footnotesize\ttfamily int Sudoku\+Solver.\+Solver.\+Get\+Square\+Index (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Returns the index of the square that the entry described by indices i and j belongs to  
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & row of the entry\\
+\hline
+{\em j} & column of the entry\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the square
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00206}{206}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a8933bd64a6fb20e24d3eed65e88ce811}\label{class_sudoku_solver_1_1_solver_a8933bd64a6fb20e24d3eed65e88ce811}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!IsValid@{IsValid}}
+\index{IsValid@{IsValid}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{IsValid()}{IsValid()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver.\+Solver.\+Is\+Valid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{int\mbox{[}$\,$\mbox{]}}]{pos,  }\item[{int}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Checks if number would be a valid entry in the current space  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to solve\\
+\hline
+{\em pos} & Int array with 2 entries\+: the row and column index of the space\\
+\hline
+{\em num} & Number to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if valid, false otherwise.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00139}{139}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a91cff9b0028f1e15e68e673cb354a82d}\label{class_sudoku_solver_1_1_solver_a91cff9b0028f1e15e68e673cb354a82d}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!IsValidInCol@{IsValidInCol}}
+\index{IsValidInCol@{IsValidInCol}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{IsValidInCol()}{IsValidInCol()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver.\+Solver.\+Is\+Valid\+In\+Col (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{int\mbox{[}$\,$\mbox{]}}]{pos,  }\item[{int}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Checks if number is valid in current column  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to check\\
+\hline
+{\em pos} & The position the new number should be inserted\\
+\hline
+{\em num} & Number to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if number is valid, false otherwise.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00172}{172}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a6805383877c2cc83186053db0da79cc8}\label{class_sudoku_solver_1_1_solver_a6805383877c2cc83186053db0da79cc8}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!IsValidInRow@{IsValidInRow}}
+\index{IsValidInRow@{IsValidInRow}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{IsValidInRow()}{IsValidInRow()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver.\+Solver.\+Is\+Valid\+In\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{int\mbox{[}$\,$\mbox{]}}]{pos,  }\item[{int}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Checks if number is valid in current row  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to check\\
+\hline
+{\em pos} & The position the new number should be inserted\\
+\hline
+{\em num} & Number to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if number is valid, false otherwise.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00155}{155}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_acd10589cbd6d1d6d01c5343a85197263}\label{class_sudoku_solver_1_1_solver_acd10589cbd6d1d6d01c5343a85197263}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!IsValidInSquare@{IsValidInSquare}}
+\index{IsValidInSquare@{IsValidInSquare}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{IsValidInSquare()}{IsValidInSquare()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver.\+Solver.\+Is\+Valid\+In\+Square (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{int\mbox{[}$\,$\mbox{]}}]{pos,  }\item[{int}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Checks if number is valid in current square  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to check\\
+\hline
+{\em pos} & The position the new number should be inserted\\
+\hline
+{\em num} & Number to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if number is valid, false otherwise.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00189}{189}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a0d30424ec8a1d105c0508462ee4c7da4}\label{class_sudoku_solver_1_1_solver_a0d30424ec8a1d105c0508462ee4c7da4}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!SolveSudoku@{SolveSudoku}}
+\index{SolveSudoku@{SolveSudoku}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{SolveSudoku()}{SolveSudoku()}}
+{\footnotesize\ttfamily abstract bool Sudoku\+Solver.\+Solver.\+Solve\+Sudoku (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Solves a sudoku. Zero in a sudoku stands for an empty cell  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & An incompletely filled sudoku\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if solved, false otherwise
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_brute_force_solver_definition_1_1_brute_force_solver_a13e4bd84629b89279e374fb6f9bb139c}{Brute\+Force\+Solver\+Definition.\+Brute\+Force\+Solver}}, and \mbox{\hyperlink{class_complex_solver_definition_1_1_complex_solver_a2f18c79a32a51b7f54c780ebe88cf80a}{Complex\+Solver\+Definition.\+Complex\+Solver}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_ad9cede6fe11657c0932fdcc77e92fb4f}\label{class_sudoku_solver_1_1_solver_ad9cede6fe11657c0932fdcc77e92fb4f}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!\_logpath@{\_logpath}}
+\index{\_logpath@{\_logpath}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{\_logpath}{\_logpath}}
+{\footnotesize\ttfamily string Sudoku\+Solver.\+Solver.\+\_\+logpath = \char`\"{}\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00015}{15}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a1346bad94bdcc0b2693417e64d500e3c}\label{class_sudoku_solver_1_1_solver_a1346bad94bdcc0b2693417e64d500e3c}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!\_logServant@{\_logServant}}
+\index{\_logServant@{\_logServant}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{\_logServant}{\_logServant}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_servants_1_1_debug_servant}{Debug\+Servant}} Sudoku\+Solver.\+Solver.\+\_\+log\+Servant}
+
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00016}{16}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+\mbox{\Hypertarget{class_sudoku_solver_1_1_solver_a4085bf140953fb51a51e213fef61f979}\label{class_sudoku_solver_1_1_solver_a4085bf140953fb51a51e213fef61f979}} 
+\index{SudokuSolver.Solver@{SudokuSolver.Solver}!\_sudoku@{\_sudoku}}
+\index{\_sudoku@{\_sudoku}!SudokuSolver.Solver@{SudokuSolver.Solver}}
+\doxysubsubsection{\texorpdfstring{\_sudoku}{\_sudoku}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} Sudoku\+Solver.\+Solver.\+\_\+sudoku}
+
+
+
+Definition at line \mbox{\hyperlink{_solver_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_solver_8cs_source}{Solver.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Sudoku\+Solver/\mbox{\hyperlink{_solver_8cs}{Solver.\+cs}}\end{DoxyCompactItemize}

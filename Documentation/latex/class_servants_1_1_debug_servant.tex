@@ -1,0 +1,186 @@
+\hypertarget{class_servants_1_1_debug_servant}{}\doxysection{Servants.\+Debug\+Servant Class Reference}
+\label{class_servants_1_1_debug_servant}\index{Servants.DebugServant@{Servants.DebugServant}}
+
+
+This class provides debug functions   
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_servants_1_1_debug_servant_ace63c917d5e50737587e769acd0e3d6e}{Debug\+Servant}} (string path)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{class_servants_1_1_debug_servant}{Debug\+Servant}}. Saves the path and initializes the log file.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_servants_1_1_debug_servant_a9ef2e54611ccf38b4d8395b63319ff15}{Init\+Log}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the log\+: if an old file exists, it deletes the contents and creates a new empty file with an initial message.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_servants_1_1_debug_servant_ae5ebdaa599bdab10aadb5c3a94f7324d}{Print\+Message}} (string message)
+\begin{DoxyCompactList}\small\item\em Writes a log message Information taken from\+: \href{https://learn.microsoft.com/de-de/dotnet/api/system.io.file.appendtext?view=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+io.\+file.\+appendtext?view=net-\/5.\+0}} \href{https://learn.microsoft.com/de-de/dotnet/api/system.datetime?view=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+datetime?view=net-\/5.\+0}}  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_servants_1_1_debug_servant_a169407808fb041d83863cbdcb4532499}{Print\+Error\+Message}} (string message)
+\begin{DoxyCompactList}\small\item\em Writes an error message to the log Information taken from\+: \href{https://learn.microsoft.com/de-de/dotnet/api/system.io.file.appendtext?view=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+io.\+file.\+appendtext?view=net-\/5.\+0}} \href{https://learn.microsoft.com/de-de/dotnet/api/system.datetime?view=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+datetime?view=net-\/5.\+0}}  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_servants_1_1_debug_servant_a8fde448310738893f1c40cc6abb5e28f}{Print\+Sudoku}} (\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku)
+\begin{DoxyCompactList}\small\item\em Prints a sudoku to the debug file  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_servants_1_1_debug_servant_a7f3c00522e804b9c4061a0a6d5506701}{Print\+Sudoku\+Line}} (Stream\+Writer sw, \mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}} sudoku, int i)
+\begin{DoxyCompactList}\small\item\em Writes a single sudoku line to the Stream\+Writer (with formatting)  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}{\+\_\+logpath}} = \char`\"{}\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class provides debug functions  
+
+Definition at line \mbox{\hyperlink{_debug_servant_8cs_source_l00010}{10}} of file \mbox{\hyperlink{_debug_servant_8cs_source}{Debug\+Servant.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_servants_1_1_debug_servant_ace63c917d5e50737587e769acd0e3d6e}\label{class_servants_1_1_debug_servant_ace63c917d5e50737587e769acd0e3d6e}} 
+\index{Servants.DebugServant@{Servants.DebugServant}!DebugServant@{DebugServant}}
+\index{DebugServant@{DebugServant}!Servants.DebugServant@{Servants.DebugServant}}
+\doxysubsubsection{\texorpdfstring{DebugServant()}{DebugServant()}}
+{\footnotesize\ttfamily Servants.\+Debug\+Servant.\+Debug\+Servant (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{class_servants_1_1_debug_servant}{Debug\+Servant}}. Saves the path and initializes the log file.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_debug_servant_8cs_source_l00021}{21}} of file \mbox{\hyperlink{_debug_servant_8cs_source}{Debug\+Servant.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_servants_1_1_debug_servant_a9ef2e54611ccf38b4d8395b63319ff15}\label{class_servants_1_1_debug_servant_a9ef2e54611ccf38b4d8395b63319ff15}} 
+\index{Servants.DebugServant@{Servants.DebugServant}!InitLog@{InitLog}}
+\index{InitLog@{InitLog}!Servants.DebugServant@{Servants.DebugServant}}
+\doxysubsubsection{\texorpdfstring{InitLog()}{InitLog()}}
+{\footnotesize\ttfamily bool Servants.\+Debug\+Servant.\+Init\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the log\+: if an old file exists, it deletes the contents and creates a new empty file with an initial message.  
+
+\begin{DoxyReturn}{Returns}
+True if everything worked, false if an error occured.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_debug_servant_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_debug_servant_8cs_source}{Debug\+Servant.\+cs}}.
+
+\mbox{\Hypertarget{class_servants_1_1_debug_servant_a169407808fb041d83863cbdcb4532499}\label{class_servants_1_1_debug_servant_a169407808fb041d83863cbdcb4532499}} 
+\index{Servants.DebugServant@{Servants.DebugServant}!PrintErrorMessage@{PrintErrorMessage}}
+\index{PrintErrorMessage@{PrintErrorMessage}!Servants.DebugServant@{Servants.DebugServant}}
+\doxysubsubsection{\texorpdfstring{PrintErrorMessage()}{PrintErrorMessage()}}
+{\footnotesize\ttfamily bool Servants.\+Debug\+Servant.\+Print\+Error\+Message (\begin{DoxyParamCaption}\item[{string}]{message }\end{DoxyParamCaption})}
+
+
+
+Writes an error message to the log Information taken from\+: \href{https://learn.microsoft.com/de-de/dotnet/api/system.io.file.appendtext?view=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+io.\+file.\+appendtext?view=net-\/5.\+0}} \href{https://learn.microsoft.com/de-de/dotnet/api/system.datetime?view=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+datetime?view=net-\/5.\+0}}  
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & String to write\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if sucessful, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_debug_servant_8cs_source_l00097}{97}} of file \mbox{\hyperlink{_debug_servant_8cs_source}{Debug\+Servant.\+cs}}.
+
+\mbox{\Hypertarget{class_servants_1_1_debug_servant_ae5ebdaa599bdab10aadb5c3a94f7324d}\label{class_servants_1_1_debug_servant_ae5ebdaa599bdab10aadb5c3a94f7324d}} 
+\index{Servants.DebugServant@{Servants.DebugServant}!PrintMessage@{PrintMessage}}
+\index{PrintMessage@{PrintMessage}!Servants.DebugServant@{Servants.DebugServant}}
+\doxysubsubsection{\texorpdfstring{PrintMessage()}{PrintMessage()}}
+{\footnotesize\ttfamily bool Servants.\+Debug\+Servant.\+Print\+Message (\begin{DoxyParamCaption}\item[{string}]{message }\end{DoxyParamCaption})}
+
+
+
+Writes a log message Information taken from\+: \href{https://learn.microsoft.com/de-de/dotnet/api/system.io.file.appendtext?view=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+io.\+file.\+appendtext?view=net-\/5.\+0}} \href{https://learn.microsoft.com/de-de/dotnet/api/system.datetime?view=net-5.0}{\texttt{ https\+://learn.\+microsoft.\+com/de-\/de/dotnet/api/system.\+datetime?view=net-\/5.\+0}}  
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & String to write\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if sucessful, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_debug_servant_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_debug_servant_8cs_source}{Debug\+Servant.\+cs}}.
+
+\mbox{\Hypertarget{class_servants_1_1_debug_servant_a8fde448310738893f1c40cc6abb5e28f}\label{class_servants_1_1_debug_servant_a8fde448310738893f1c40cc6abb5e28f}} 
+\index{Servants.DebugServant@{Servants.DebugServant}!PrintSudoku@{PrintSudoku}}
+\index{PrintSudoku@{PrintSudoku}!Servants.DebugServant@{Servants.DebugServant}}
+\doxysubsubsection{\texorpdfstring{PrintSudoku()}{PrintSudoku()}}
+{\footnotesize\ttfamily bool Servants.\+Debug\+Servant.\+Print\+Sudoku (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku }\end{DoxyParamCaption})}
+
+
+
+Prints a sudoku to the debug file  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sudoku} & The sudoku to print\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_debug_servant_8cs_source_l00122}{122}} of file \mbox{\hyperlink{_debug_servant_8cs_source}{Debug\+Servant.\+cs}}.
+
+\mbox{\Hypertarget{class_servants_1_1_debug_servant_a7f3c00522e804b9c4061a0a6d5506701}\label{class_servants_1_1_debug_servant_a7f3c00522e804b9c4061a0a6d5506701}} 
+\index{Servants.DebugServant@{Servants.DebugServant}!PrintSudokuLine@{PrintSudokuLine}}
+\index{PrintSudokuLine@{PrintSudokuLine}!Servants.DebugServant@{Servants.DebugServant}}
+\doxysubsubsection{\texorpdfstring{PrintSudokuLine()}{PrintSudokuLine()}}
+{\footnotesize\ttfamily void Servants.\+Debug\+Servant.\+Print\+Sudoku\+Line (\begin{DoxyParamCaption}\item[{Stream\+Writer}]{sw,  }\item[{\mbox{\hyperlink{class_sudoku_definition_1_1_sudoku}{Sudoku}}}]{sudoku,  }\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Writes a single sudoku line to the Stream\+Writer (with formatting)  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sw} & Stream\+Writer to write to\\
+\hline
+{\em sudoku} & Sudoku to print\\
+\hline
+{\em i} & Index of the row which should be printed\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_debug_servant_8cs_source_l00153}{153}} of file \mbox{\hyperlink{_debug_servant_8cs_source}{Debug\+Servant.\+cs}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}\label{class_servants_1_1_debug_servant_a5c9276ebab0fa69947774b63b06d2744}} 
+\index{Servants.DebugServant@{Servants.DebugServant}!\_logpath@{\_logpath}}
+\index{\_logpath@{\_logpath}!Servants.DebugServant@{Servants.DebugServant}}
+\doxysubsubsection{\texorpdfstring{\_logpath}{\_logpath}}
+{\footnotesize\ttfamily string Servants.\+Debug\+Servant.\+\_\+logpath = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_debug_servant_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_debug_servant_8cs_source}{Debug\+Servant.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Servants/\mbox{\hyperlink{_debug_servant_8cs}{Debug\+Servant.\+cs}}\end{DoxyCompactItemize}
