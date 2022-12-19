@@ -1,5 +1,6 @@
 # CS50x-SudokuSolver
-## Video Demo: https://youtu.be/o9hoAeDesFY
+## Video Demo:  https://youtu.be/o9hoAeDesFY
+## Code with commit history: https://github.com/CorinnaZ/CS50x-SudokuSolver.git
 
 ## Overview:
 This repository was created as my final project for the 2022's edition of CS50x. For the project, I have written a GUI program in C# (WPF) that can display and solve sudokus (see: [Wikipedia](https://en.wikipedia.org/wiki/Sudoku)). It was developed in Visual Studio 2022 (Community Edition). I have chosen C# and WPF as a language because I need to learn it for my job.
